@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vod.movit.BoardMapper"> 
+<!-- Mapper의 패키지까지 정확하게 기술해야 한다. -->
+	
+	<resultMap type="com.vod.movit.board.vo.BoardVO" id="BoardResultMap">
+		<result property="seq" column="SEQ" />
+		<result property="title" column="TITLE" />
+		<result property="writer" column="WRITER" />
+		<result property="content" column="CONTENT" />
+		<result property="regdate" column="REGDATE" />
+		<result property="cnt" column="CNT" />
+		</resultMap>
+	<!-- id의 경우에는 Mapper.java에 동일하게 사용해야된다. resultMap="MemberResultMap" -->
+	<select id="getUers" resultType="com.vod.movit.board.vo.BoardVO" >
+		SELECT * FROM board
+	</select>
+	<!-- /WEB-INF/mybatisAlias.xml에서 alias 설정했기 때문에 daega.web.user.vo.User를 user로 써도 됨
+	<select id="selectUser" resultType="user" parameterType="String">
+		SELECT * FROM userinfo WHERE userinfo_id = #{userinfo_id} AND userinfo_password = #{userinfo_password}
+	</select>
+	<select id="selectByEmail" resultType="user">
+		SELECT userinfo_email, userinfo_name FROM userinfo WHERE userinfo_email = #{userinfo_email}
+	</select>
+	<select id="selectById" resultType="user">
+		SELECT userinfo_id, userinfo_name FROM userinfo WHERE userinfo_id = #{userinfo_id}
+	</select>
+	<select id="selectByNickname" resultType="user">
+		SELECT userinfo_nickname, userinfo_name FROM userinfo WHERE userinfo_nickname = #{userinfo_nickname}
+	</select>
+	
+	<select id="loginCheck" resultType="String">
+		SELECT userinfo_name FROM userinfo WHERE userinfo_id = #{userinfo_id} AND userinfo_password = #{userinfo_password}
+	</select>
+	<select id="viewUser" resultType="user">
+		SELECT * FROM userinfo WHERE userinfo_id = #{userinfo_id} AND userinfo_password = #{userinfo_password}
+	</select>
+	<select id="getUpdateUser" resultType="user"
+	parameterType="int">
+		SELECT * FROM userinfo WHERE userinfo_id = #{userinfo_id}
+	</select>
+	
+	 parameterType 에는 구문에 전달될 파라미터의 패키지 경로를 포함한 전체 클래명이나 별칭이 들어간다  
+	<insert id="insertUser" parameterType="user" >
+		INSERT INTO userinfo values(#{userinfo_id},#{userinfo_password},#{userinfo_name},#{userinfo_nickname},#{userinfo_email},#{userinfo_grade},'user')
+	</insert>
+	
+	 update는 생략한다. 
+	<update id="updateUser" parameterType="user">
+		UPDATE userinfo SET userinfo_id = #{userinfo_id}, userinfo_password = #{userinfo_password}, userinfo_name = #{userinfo_name}, userinfo_nickname = #{userinfo_nickname}, userinfo_grade = #{userinfo_grade}
+		WHERE userinfo_id=#{userinfo_id}
+	</update>
+	
+	<delete id="deleteUser" parameterType="int">
+		DELETE userinfo WHERE userinfo_id=#{userinfo_id}
+	</delete>
+-->
+</mapper>
