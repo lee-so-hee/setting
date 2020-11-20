@@ -151,50 +151,38 @@
 		<div id="layoutSidenav_content">
 			<main>
 				<div class="container-fluid">
-					<h1 class="mt-4">게시판 목록</h1>
+					<h1 class="mt-4">${detail.title }</h1>
 					<ol class="breadcrumb mb-4">
-						<li class="breadcrumb-item active">게시판 목록</li>
+						<li class="breadcrumb-item active">${detail.title }</li>
 					</ol>
 
 					<div class="card mb-4">
 						<div class="card-header">
-							<i class="fas fa-table mr-1"></i> 게시판 목록
+							<i class="fas fa-table mr-1">${detail.title }</i>
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
-								<table class="table table-bordered" id="dataTable" width="100%">
-									<thead>
-										<tr>
-											<th>bno</th>
-											<th>title</th>
-											<th>writer</th>
-											<th>content</th>
-											<th>regDate</th>
-											<th>ViewCnt</th>
-										</tr>
-									</thead>
-									<tfoot>
-										<tr>
-											<th>Name</th>
-											<th>Position</th>
-											<th>Office</th>
-											<th>Age</th>
-											<th>Start date</th>
-											<th>Salary</th>
-										</tr>
-									</tfoot>
-									<tbody>
-										<c:forEach items="${boardList }" var="board">
-											<tr>
-												<td>${board.bno }</td>
-												<td><a href="detailBoard?bno=${board.bno }">${board.title }</a></td>
-												<td>${board.writer }</td>
-												<td>${board.content }</td>
-												<td>${board.regDate }</td>
-												<td>${board.viewCnt }</td>
-											</tr>
-										</c:forEach>
-									</tbody>
+								<a href="boardModify?bno=${detail.bno }"
+									class="btn btn-info" role="button">수정</a> <a
+									href="removeBoard?bno=${detail.bno }"
+									class="btn btn-info" role="button">삭제</a>
+								<table class="table table-bordered" id="dataTable" width="100%" align="center">
+									<tr>
+										<td>제목</td>
+										<td colspan="3">${detail.title }</td>
+									</tr>
+									<tr>
+										<td>작성자</td>
+										<td>${detail.writer }</td>
+										<td>작성일</td>
+										<td>${detail.regDate }</td>
+										<td>조회수</td>
+										<td>${detail.viewCnt }</td>
+									</tr>
+									<tr>
+										<td width="100">내용</td>
+										<td colspan="5"><p>${detail.content }</p></td>
+									</tr>
 								</table>
 							</div>
 						</div>

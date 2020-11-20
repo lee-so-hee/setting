@@ -17,6 +17,18 @@
 	<select id="getBoardList" resultType="com.vod.movit.board.vo.BoardVO" >
 		SELECT * FROM tbl_board
 	</select>
+	<update id="updateCountBoard" parameterType="int">
+		UPDATE tbl_board SET viewCnt = viewCnt+1 WHERE bno= #{bno}
+	</update>
+	<update id="updateBoard" parameterType="board">
+		<![CDATA[UPDATE tbl_board SET title = #{title}, regDate = sysdate, content = #{content} WHERE bno = #{bno}]]>
+	</update>
+	<select id="getBoard" resultType="board" parameterType="int">
+		SELECT * FROM tbl_board WHERE bno = #{bno}
+	</select>
+	<delete id="deleteBoard" parameterType="int">
+		DELETE FROM tbl_board WHERE bno = #{bno}
+	</delete>
 	<!-- /WEB-INF/mybatisAlias.xml에서 alias 설정했기 때문에 daega.web.user.vo.User를 user로 써도 됨
 	<select id="selectUser" resultType="user" parameterType="String">
 		SELECT * FROM userinfo WHERE userinfo_id = #{userinfo_id} AND userinfo_password = #{userinfo_password}

@@ -13,4 +13,12 @@ public interface BoardMapper {
 	 * userinfo_email); User selectById(String userinfo_id); User
 	 * selectByNickname(String userinfo_nickname);
 	 */
+
+	BoardVO getBoard(int bno);
+
+	void updateCountBoard(int bno);
+
+	void updateBoard(BoardVO board);
+
+	void deleteBoard(int bno);
 }

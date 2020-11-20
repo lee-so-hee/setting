@@ -8,4 +8,10 @@ public interface BoardService {
 
 	ArrayList<BoardVO> getBoardList();
 
+	BoardVO getBoard(int bno);
+
+	void modifyBoard(BoardVO board);
+
+	void removeBoard(int bno);
+
 }
