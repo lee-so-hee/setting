@@ -168,15 +168,15 @@
 									class="btn btn-info" role="button">삭제</a>
 								<table class="table table-bordered" id="dataTable" width="100%" align="center">
 									<tr>
-										<td>제목</td>
-										<td colspan="3">${detail.title }</td>
+										<td width="15%">제목</td>
+										<td colspan="5">${detail.title }</td>
 									</tr>
 									<tr>
 										<td>작성자</td>
 										<td>${detail.writer }</td>
-										<td>작성일</td>
+										<td width="15%">작성일</td>
 										<td>${detail.regDate }</td>
-										<td>조회수</td>
+										<td width="15%">조회수</td>
 										<td>${detail.viewCnt }</td>
 									</tr>
 									<tr>
