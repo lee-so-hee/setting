@@ -8,13 +8,14 @@
 		http://www.springframework.org/schema/beans/spring-beans-4.3.xsd 
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
-	<!-- 데이터베이스 연결 --> 
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"> 
-		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/> 
-<!-- 		<property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:(개인SID)" />  -->
-		<property name="url" value="jdbc:oracle:thin:@localhost:1521:ORCL" /> 
-		<property name="username" value="java"/> 
-		<property name="password" value="java"/> 
+<!-- MyBatis -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+		<property name="driverClass" value="oracle.jdbc.OracleDriver" />
+		<!-- 아래의 부분은 오라클 버전이나 계정에따라 다르게적는다. -->
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:smarthome" />
+		<property name="username" value="java" />
+		<property name="password" value="java" />
 	</bean>
 	
 	<!-- SqlSession --> 

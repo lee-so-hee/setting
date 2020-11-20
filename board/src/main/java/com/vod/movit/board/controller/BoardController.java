@@ -1,15 +1,21 @@
 package com.vod.movit.board.controller;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.vod.movit.board.svc.BoardService;
+import com.vod.movit.board.vo.BoardVO;
 
 /**
  * Handles requests for the application home page.
@@ -17,6 +23,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class BoardController {
+	
+	@Autowired
+	private BoardService boardService;
 
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 
@@ -53,7 +62,12 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "/table")
-	public String table() {
-		return "table";
+	public ModelAndView boardList() {
+		ModelAndView result = new ModelAndView();
+		ArrayList<BoardVO> boardList = boardService.getBoardList();
+		result.addObject("boardList", boardList);
+		result.setViewName("board1");
+		System.out.println(boardList);
+		return result;
 	}
 }

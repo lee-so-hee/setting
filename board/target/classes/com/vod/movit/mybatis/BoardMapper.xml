@@ -2,20 +2,20 @@
 <!DOCTYPE mapper
 	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.vod.movit.BoardMapper"> 
+<mapper namespace="com.vod.movit.mybatis.BoardMapper"> 
 <!-- Mapper의 패키지까지 정확하게 기술해야 한다. -->
 	
 	<resultMap type="com.vod.movit.board.vo.BoardVO" id="BoardResultMap">
-		<result property="seq" column="SEQ" />
+		<result property="bno" column="BNO" />
 		<result property="title" column="TITLE" />
 		<result property="writer" column="WRITER" />
 		<result property="content" column="CONTENT" />
-		<result property="regdate" column="REGDATE" />
-		<result property="cnt" column="CNT" />
+		<result property="regDate" column="REGDATE" />
+		<result property="viewCnt" column="VIEWCNT" />
 		</resultMap>
 	<!-- id의 경우에는 Mapper.java에 동일하게 사용해야된다. resultMap="MemberResultMap" -->
-	<select id="getUers" resultType="com.vod.movit.board.vo.BoardVO" >
-		SELECT * FROM board
+	<select id="getBoardList" resultType="com.vod.movit.board.vo.BoardVO" >
+		SELECT * FROM tbl_board
 	</select>
 	<!-- /WEB-INF/mybatisAlias.xml에서 alias 설정했기 때문에 daega.web.user.vo.User를 user로 써도 됨
 	<select id="selectUser" resultType="user" parameterType="String">

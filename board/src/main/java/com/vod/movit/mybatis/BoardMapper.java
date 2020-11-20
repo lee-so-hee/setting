@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import com.vod.movit.board.vo.BoardVO;
 
 public interface BoardMapper {
-	ArrayList<BoardVO> getUsers();
+	ArrayList<BoardVO> getBoardList();
 	/*
 	 * void insertUser(User user); void updateUser(User user); void
 	 * deleteUser(String id); User getUpdateUser(String id); User viewUser(User

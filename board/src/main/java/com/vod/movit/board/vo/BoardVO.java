@@ -4,28 +4,27 @@ import java.util.Date;
 
 public class BoardVO  {
 	/* mybatis연동 테스트!!!
-	 * CREATE TABLE "BOARD" (	
-	 * 	"SEQ" NUMBER(5,0), 
-		"TITLE" VARCHAR2(200 BYTE), 
-		"WRITER" VARCHAR2(20 BYTE), 
-		"CONTENT" VARCHAR2(2000 BYTE), 
-		"REGDATE" DATE DEFAULT SYSDATE, 
-		"CNT" NUMBER(5,0) DEFAULT 0, 
-		PRIMARY KEY ("SEQ")
-		) ;
+	 * create table tbl_board(
+  bno number not null,
+  title varchar(50) not null,
+  writer varchar(30) not null,
+  content varchar(1000) not null,
+  regDate date not null,
+  viewCnt number default 0,
+  primary key(bno)
+);
 	 */
-	private int seq;
+	private int bno;
 	private String title;
 	private String writer;
 	private String content;
-	private Date regdate;
-	private int cnt;
-	
-	public int getSeq() {
-		return seq;
+	private Date regDate;
+	private int viewCnt;
+	public int getBno() {
+		return bno;
 	}
-	public void setSeq(int seq) {
-		this.seq = seq;
+	public void setBno(int bno) {
+		this.bno = bno;
 	}
 	public String getTitle() {
 		return title;
@@ -45,17 +44,17 @@ public class BoardVO  {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Date getRegdate() {
-		return regdate;
+	public Date getRegDate() {
+		return regDate;
 	}
-	public void setRegdate(Date regdate) {
-		this.regdate = regdate;
+	public void setRegDate(Date regDate) {
+		this.regDate = regDate;
 	}
-	public int getCnt() {
-		return cnt;
+	public int getViewCnt() {
+		return viewCnt;
 	}
-	public void setCnt(int cnt) {
-		this.cnt = cnt;
+	public void setViewCnt(int viewCnt) {
+		this.viewCnt = viewCnt;
 	}
-	
 }
+	
