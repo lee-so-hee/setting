@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,10 +56,17 @@
 				aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
 				<div class="dropdown-menu dropdown-menu-right"
 					aria-labelledby="userDropdown">
-					<a class="dropdown-item" href="#">Settings</a> <a
-						class="dropdown-item" href="#">Activity Log</a>
+					<c:choose>
+					<c:when test="${msg=='success' }">
+						<a class="dropdown-item">${sessionScope.userName }</a>
 					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="login.html">Logout</a>
+						<a class="dropdown-item" href="logout">로그아웃</a>
+					</c:when>
+					<c:otherwise>
+						<a class="dropdown-item" href="loginForm">로그인</a>
+						<a class="dropdown-item" href="registerForm">회원가입</a>
+					</c:otherwise>
+				</c:choose>
 				</div></li>
 		</ul>
 	</nav>
@@ -118,7 +126,7 @@
 									data-parent="#sidenavAccordionPages">
 									<nav class="sb-sidenav-menu-nested nav">
 										<a class="nav-link" href="login">Login</a> <a class="nav-link"
-											href="register">Register</a> <a class="nav-link"
+											href="registerForm">Register</a> <a class="nav-link"
 											href="password">Forgot Password</a>
 									</nav>
 								</div>

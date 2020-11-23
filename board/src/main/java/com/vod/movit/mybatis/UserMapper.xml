@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vod.movit.mybatis.UserMapper"> 
+<!-- Mapper의 패키지까지 정확하게 기술해야 한다. -->
+	<!-- 
+	 CREATE TABLE tbl_userinfo( 
+	 u_id varchar2(50) NOT NULL, 
+	 u_password varchar2(100) NOT NULL, 
+	 u_name varchar2(50) NOT NULL, 
+	 u_phone varchar2(50) NOT NULL,
+	 u_email varchar2(50) NOT NULL,
+	  u_regDate DATE NOT NULL, PRIMARY
+	  KEY(u_id) );
+	  -->
+	<resultMap type="com.vod.movit.user.vo.UserVO" id="UserResultMap">
+		<result property="u_id" column="U_ID" />
+		<result property="u_password" column="U_PASSWORD" />
+		<result property="u_name" column="U_NAME" />
+		<result property="u_phone" column="U_PHONE" />
+		<result property="u_email" column="U_EMAIL" />
+		<result property="u_regDate" column="U_REGDATE" />
+		</resultMap>
+	
+	<select id="selectByEmail" resultType="user">
+		SELECT u_email, u_name FROM tbl_user WHERE u_email = #{u_email}
+	</select>
+	<select id="selectById" resultType="user">
+		SELECT u_id, u_name FROM tbl_user WHERE u_id = #{u_id}
+	</select>
+	<select id="selectByName" resultType="user">
+		SELECT u_name FROM tbl_user WHERE u_name = #{u_name}
+	</select>
+	<select id="selectByPhone" resultType="user">
+		SELECT u_phone FROM tbl_user WHERE u_phone = #{u_phone}
+	</select>
+	<insert id="insertUser" parameterType="user" > 
+		INSERT INTO tbl_user values(#{u_id},#{u_password},#{u_name},#{u_phone},#{u_email},sysdate)
+	</insert>
+	<select id="loginCheck" parameterType="user" resultType="String">
+		SELECT u_name FROM tbl_user WHERE u_id = #{u_id} AND u_password = #{u_password}
+	</select>
+	<select id="viewUser" resultType="user">
+		SELECT * FROM tbl_user WHERE u_id = #{u_id} AND u_password = #{u_password}
+	</select>
+	<!-- /WEB-INF/mybatisAlias.xml에서 alias 설정했기 때문에 daega.web.user.vo.User를 user로 써도 
+	<select id="selectUser" resultType="user" parameterType="String">
+		SELECT * FROM userinfo WHERE userinfo_id = #{userinfo_id} AND userinfo_password = #{userinfo_password}
+	</select>
+	
+	<select id="getUpdateUser" resultType="user"
+	parameterType="int">
+		SELECT * FROM userinfo WHERE userinfo_id = #{userinfo_id}
+	</select>
+	 update는 생략한다. 
+	<update id="updateUser" parameterType="user">
+		UPDATE userinfo SET userinfo_id = #{userinfo_id}, userinfo_password = #{userinfo_password}, userinfo_name = #{userinfo_name}, userinfo_nickname = #{userinfo_nickname}, userinfo_grade = #{userinfo_grade}
+		WHERE userinfo_id=#{userinfo_id}
+	</update>
+	
+	<delete id="deleteUser" parameterType="int">
+		DELETE userinfo WHERE userinfo_id=#{userinfo_id}
+	</delete>
+	-->
+	
+</mapper>

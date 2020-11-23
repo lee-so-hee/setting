@@ -1,8 +1,10 @@
-package com.vod.movit.user.dao;
+package com.vod.movit.mybatis;
 
 import com.vod.movit.user.vo.UserVO;
 
-public interface UserDAO {
+public interface UserMapper {
+
+	void insertUser(UserVO user);
 
 	UserVO selectByEmail(String u_email);
 
@@ -12,9 +14,7 @@ public interface UserDAO {
 
 	UserVO selectByPhone(String u_phone);
 
-	void insertUser(UserVO user);
-
-	boolean loginCheck(UserVO user);
+	String loginCheck(UserVO user);
 
 	UserVO viewUser(UserVO user);
 

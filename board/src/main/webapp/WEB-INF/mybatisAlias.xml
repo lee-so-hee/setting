@@ -2,8 +2,10 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0/EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-<!-- mybatis설정 파일 타입 별칭 -->
+	<!-- mybatis설정 파일 타입 별칭 -->
 	<typeAliases>
-		<typeAlias type="com.vod.movit.board.vo.BoardVO" alias="board"/>
-		</typeAliases>
+		<typeAlias type="com.vod.movit.board.vo.BoardVO"
+			alias="board" />
+		<typeAlias type="com.vod.movit.user.vo.UserVO" alias="user" />
+	</typeAliases>
 </configuration>
