@@ -41,4 +41,10 @@ public class BoardServiceImpl implements BoardService {
 		boardDAO.deleteBoard(bno);
 	}
 
+	@Override
+	public void addBoard(BoardVO board) {
+		// TODO Auto-generated method stub
+		boardDAO.addBoard(board);
+	}
+
 }

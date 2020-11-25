@@ -6,29 +6,47 @@
 <!-- Mapper의 패키지까지 정확하게 기술해야 한다. -->
 	
 	<resultMap type="com.vod.movit.board.vo.BoardVO" id="BoardResultMap">
-		<result property="bno" column="BNO" />
-		<result property="title" column="TITLE" />
-		<result property="writer" column="WRITER" />
-		<result property="content" column="CONTENT" />
-		<result property="regDate" column="REGDATE" />
-		<result property="viewCnt" column="VIEWCNT" />
-		</resultMap>
+		<result property="b_no" column="B_NO" />
+		<result property="b_title" column="B_TITLE" />
+		<result property="b_writer" column="B_WRITER" />
+		<result property="b_content" column="B_CONTENT" />
+		<result property="b_regDate" column="B_REGDATE" />
+		<result property="b_viewCnt" column="B_VIEWCNT" />
+		<result property="m_no" column="M_NO" />
+	</resultMap>
+	<resultMap type="com.vod.movit.movie.vo.MovieVO" id="MovieResultMap">
+		<result property="m_no" column="M_NO" />
+		<result property="m_title" column="M_TITLE" />
+		<result property="m_director" column="M_DIRECTOR" />
+		<result property="m_content" column="M_CONTENT" />
+		<result property="m_genre" column="M_GENRE" />
+		<result property="m_audience" column="M_AUDIENCE" />
+		<result property="m_company" column="M_COMPANY" />
+		<result property="m_nation" column="M_NATION" />
+		<result property="m_score" column="M_SCORE" />
+		<result property="m_grade" column="M_GRADE" />
+		<result property="m_regDate" column="M_REGDATE" />
+	</resultMap>	
 	<!-- id의 경우에는 Mapper.java에 동일하게 사용해야된다. resultMap="MemberResultMap" -->
 	<select id="getBoardList" resultType="com.vod.movit.board.vo.BoardVO" >
-		SELECT * FROM tbl_board
+		SELECT b.b_no,b.b_title,b.b_writer,b.b_content,to_char(b.b_regDate,'yyyy-mm-dd') as b_regDate,b.b_viewCnt, m.m_title title FROM tbl_board b, tbl_movie m WHERE b.m_no=m.m_no
 	</select>
 	<update id="updateCountBoard" parameterType="int">
-		UPDATE tbl_board SET viewCnt = viewCnt+1 WHERE bno= #{bno}
+		UPDATE tbl_board SET b_viewCnt = b_viewCnt+1 WHERE b_no= #{b_no}
 	</update>
 	<update id="updateBoard" parameterType="board">
-		<![CDATA[UPDATE tbl_board SET title = #{title}, regDate = sysdate, content = #{content} WHERE bno = #{bno}]]>
+		<![CDATA[UPDATE tbl_board SET b_title = #{b_title}, b_regDate = sysdate, b_content = #{b_content} WHERE b_no = #{b_no}]]>
 	</update>
 	<select id="getBoard" resultType="board" parameterType="int">
-		SELECT * FROM tbl_board WHERE bno = #{bno}
+		SELECT * FROM tbl_board WHERE b_no = #{b_no}
 	</select>
 	<delete id="deleteBoard" parameterType="int">
-		DELETE FROM tbl_board WHERE bno = #{bno}
+		DELETE FROM tbl_board WHERE b_no = #{b_no}
 	</delete>
+	<insert id="insertBoard" parameterType="board">
+		INSERT INTO tbl_board(b_no,b_title,b_writer,b_content,b_regDate,b_viewCnt,m_no)
+		values(tbl_board_seq.nextval,#{b_title},#{b_writer},#{b_content},sysdate,0,#{m_no})
+	</insert>
 	<!-- /WEB-INF/mybatisAlias.xml에서 alias 설정했기 때문에 daega.web.user.vo.User를 user로 써도 됨
 	<select id="selectUser" resultType="user" parameterType="String">
 		SELECT * FROM userinfo WHERE userinfo_id = #{userinfo_id} AND userinfo_password = #{userinfo_password}

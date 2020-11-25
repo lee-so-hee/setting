@@ -48,7 +48,7 @@ public class UserController {
 		boolean result = userService.loginCheck(user, session);
 		ModelAndView mav = new ModelAndView();
 		if (result == true) {
-			mav.setViewName("index");
+			mav.setViewName("redirect:/");
 			mav.addObject("msg", "success");
 		} else {
 			mav.setViewName("login");

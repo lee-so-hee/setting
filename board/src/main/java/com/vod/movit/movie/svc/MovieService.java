@@ -8,4 +8,13 @@ public interface MovieService {
 
 	ArrayList<MovieVO> getMovieList();
 
+	ArrayList<MovieVO> getMovieNameList();
+
+	ArrayList<MovieVO> getScoreList();
+
+	ArrayList<MovieVO> getAudienceList();
+
+	ArrayList<MovieVO> getDateList();
+
+
 }

@@ -21,57 +21,17 @@
 	<select id="getMovieList" resultType="com.vod.movit.movie.vo.MovieVO" >
 		SELECT * FROM tbl_movie
 	</select>
-	<!-- 
-	<update id="updateCountBoard" parameterType="int">
-		UPDATE tbl_board SET viewCnt = viewCnt+1 WHERE bno= #{bno}
-	</update>
-	<update id="updateBoard" parameterType="board">
-		<![CDATA[UPDATE tbl_board SET title = #{title}, regDate = sysdate, content = #{content} WHERE bno = #{bno}]]>
-	</update>
-	<select id="getBoard" resultType="board" parameterType="int">
-		SELECT * FROM tbl_board WHERE bno = #{bno}
+	<select id="getAudienceList" resultType="com.vod.movit.movie.vo.MovieVO" >
+		<![CDATA[SELECT * FROM (SELECT * FROM tbl_movie ORDER BY m_audience DESC) WHERE ROWNUM <= 6]]>
 	</select>
-	<delete id="deleteBoard" parameterType="int">
-		DELETE FROM tbl_board WHERE bno = #{bno}
-	</delete>
-	 /WEB-INF/mybatisAlias.xml에서 alias 설정했기 때문에 daega.web.user.vo.User를 user로 써도 됨
-	<select id="selectUser" resultType="user" parameterType="String">
-		SELECT * FROM userinfo WHERE userinfo_id = #{userinfo_id} AND userinfo_password = #{userinfo_password}
+	<select id="getScoreList" resultType="com.vod.movit.movie.vo.MovieVO" >
+		<![CDATA[SELECT * FROM (SELECT * FROM tbl_movie ORDER BY m_score DESC) WHERE ROWNUM <= 6]]>
 	</select>
-	<select id="selectByEmail" resultType="user">
-		SELECT userinfo_email, userinfo_name FROM userinfo WHERE userinfo_email = #{userinfo_email}
+	<select id="getDateList" resultType="com.vod.movit.movie.vo.MovieVO" >
+		<![CDATA[SELECT * FROM (SELECT * FROM tbl_movie ORDER BY m_regDate DESC) WHERE ROWNUM <= 6]]>
 	</select>
-	<select id="selectById" resultType="user">
-		SELECT userinfo_id, userinfo_name FROM userinfo WHERE userinfo_id = #{userinfo_id}
-	</select>
-	<select id="selectByNickname" resultType="user">
-		SELECT userinfo_nickname, userinfo_name FROM userinfo WHERE userinfo_nickname = #{userinfo_nickname}
+	<select id="getMovieNameList" resultType="com.vod.movit.movie.vo.MovieVO">
+		SELECT m_no,m_title FROM tbl_movie
 	</select>
 	
-	<select id="loginCheck" resultType="String">
-		SELECT userinfo_name FROM userinfo WHERE userinfo_id = #{userinfo_id} AND userinfo_password = #{userinfo_password}
-	</select>
-	<select id="viewUser" resultType="user">
-		SELECT * FROM userinfo WHERE userinfo_id = #{userinfo_id} AND userinfo_password = #{userinfo_password}
-	</select>
-	<select id="getUpdateUser" resultType="user"
-	parameterType="int">
-		SELECT * FROM userinfo WHERE userinfo_id = #{userinfo_id}
-	</select>
-	
-	 parameterType 에는 구문에 전달될 파라미터의 패키지 경로를 포함한 전체 클래명이나 별칭이 들어간다  
-	<insert id="insertUser" parameterType="user" >
-		INSERT INTO userinfo values(#{userinfo_id},#{userinfo_password},#{userinfo_name},#{userinfo_nickname},#{userinfo_email},#{userinfo_grade},'user')
-	</insert>
-	
-	 update는 생략한다. 
-	<update id="updateUser" parameterType="user">
-		UPDATE userinfo SET userinfo_id = #{userinfo_id}, userinfo_password = #{userinfo_password}, userinfo_name = #{userinfo_name}, userinfo_nickname = #{userinfo_nickname}, userinfo_grade = #{userinfo_grade}
-		WHERE userinfo_id=#{userinfo_id}
-	</update>
-	
-	<delete id="deleteUser" parameterType="int">
-		DELETE userinfo WHERE userinfo_id=#{userinfo_id}
-	</delete>
--->
 </mapper>

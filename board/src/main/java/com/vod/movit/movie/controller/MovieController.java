@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,11 +30,33 @@ public class MovieController {
 	private MovieService movieService;
 	
 	@RequestMapping(value="/")
-	public ModelAndView home() {
+	public ModelAndView home(HttpSession session) {
+		ModelAndView result = new ModelAndView();
+		ArrayList<MovieVO> gradeList = movieService.getScoreList();
+		ArrayList<MovieVO> audienceList = movieService.getAudienceList();
+		ArrayList<MovieVO> dateList = movieService.getDateList();
+		result.addObject("scoreList",gradeList);
+		result.addObject("audienceList",audienceList);
+		result.addObject("dateList",dateList);
+		
+		result.setViewName("index");
+		return result;
+		
+	}
+	@RequestMapping(value="/movie")
+	public ModelAndView movie(HttpSession session) {
 		ModelAndView result = new ModelAndView();
 		ArrayList<MovieVO> movieList = movieService.getMovieList();
 		result.addObject("movieList",movieList);
-		result.setViewName("index");
+		if(session.getAttribute("userName")!=null) {
+			result.addObject("msg", "success");
+		}
+		else {
+			result.addObject("msg",	"failure");
+			result.setViewName("login");
+			return result;
+		}
+		result.setViewName("movie");
 		return result;
 		
 	}

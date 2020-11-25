@@ -14,4 +14,6 @@ public interface BoardService {
 
 	void removeBoard(int bno);
 
+	void addBoard(BoardVO board);
+
 }

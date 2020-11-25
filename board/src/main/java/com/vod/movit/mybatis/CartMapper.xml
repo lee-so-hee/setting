@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vod.movit.mybatis.CartMapper"> 
+<!-- Mapper의 패키지까지 정확하게 기술해야 한다. -->
+	
+	<resultMap type="com.vod.movit.order.vo.CartVO" id="CartResultMap">
+		<result property="c_no" column="C_NO" />
+		<result property="m_no" column="M_NO" />
+		<result property="u_id" column="U_ID" />
+		<result property="c_money" column="C_MONEY" />
+		<result property="c_orderDate" column="C_ORDERDATE" />
+	</resultMap>
+		
+	
+	<!-- id의 경우에는 Mapper.java에 동일하게 사용해야된다. resultMap="MemberResultMap" -->
+	<select id="getCart" resultType="cart" >
+		SELECT c.c_no,c.m_no,c.u_id,c.c_money,c.c_orderDate,m.m_title as title FROM tbl_cart c, tbl_movie m WHERE c.m_no=m.m_no
+	</select>
+	
+	<insert id="insertCart" parameterType="cart">
+		INSERT INTO tbl_cart(c_no,m_no,u_id,c_money,c_orderDate)
+		values(tbl_cart_seq.nextval,#{m_no},#{u_id},10000,sysdate)
+	</insert>
+	
+</mapper>

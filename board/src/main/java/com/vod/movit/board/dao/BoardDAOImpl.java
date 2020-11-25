@@ -60,4 +60,13 @@ public class BoardDAOImpl implements BoardDAO {
 		boardMapper.deleteBoard(bno);
 	}
 
+
+	@Override
+	public void addBoard(BoardVO board) {
+		// TODO Auto-generated method stub
+		BoardMapper boardMapper = sqlSession.getMapper(BoardMapper.class);
+		boardMapper.insertBoard(board);
+	}
+
+
 }

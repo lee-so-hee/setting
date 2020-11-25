@@ -8,4 +8,13 @@ public interface MovieDAO {
 
 	ArrayList<MovieVO> getMovieList();
 
+	ArrayList<MovieVO> getMovieNameList();
+
+	ArrayList<MovieVO> getAudienceList();
+
+	ArrayList<MovieVO> getScoreList();
+
+	ArrayList<MovieVO> getDateList();
+
+
 }

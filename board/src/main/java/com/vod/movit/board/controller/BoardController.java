@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.vod.movit.board.svc.BoardService;
 import com.vod.movit.board.vo.BoardVO;
+import com.vod.movit.movie.svc.MovieService;
+import com.vod.movit.movie.vo.MovieVO;
 
 /**
  * Handles requests for the application home page.
@@ -27,7 +31,9 @@ public class BoardController {
 	
 	@Autowired
 	private BoardService boardService;
-
+	@Autowired
+	private MovieService movieService;
+	
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 
 	/**
@@ -54,17 +60,40 @@ public class BoardController {
 		return "register";
 	}
 
+	@RequestMapping(value="/boardWriteForm")
+	public ModelAndView boardWriteForm() {
+		ModelAndView result = new ModelAndView();
+		ArrayList<MovieVO> movieNameList = movieService.getMovieNameList();
+		result.addObject("movieNameList", movieNameList);
+		result.setViewName("boardWriteForm");
+		return result;
+	}
+	
+	@RequestMapping(value="/boardWrite")
+	public String boardWrite(BoardVO board) {
+		boardService.addBoard(board);
+		return "redirect:/table";
+	}
+	
 	@RequestMapping(value = "/table")
-	public ModelAndView boardList() {
+	public ModelAndView boardList(HttpSession session) {
 		ModelAndView result = new ModelAndView();
 		ArrayList<BoardVO> boardList = boardService.getBoardList();
 		result.addObject("boardList", boardList);
+		if(session.getAttribute("userName")!=null) {
+			result.addObject("msg", "success");
+		}
+		else {
+			result.addObject("msg",	"failure");
+			result.setViewName("login");
+			return result;
+		}
 		result.setViewName("table");
 		return result;
 	}
 	
 	@RequestMapping(value = "/detailBoard")
-	public ModelAndView detailBoard(@RequestParam("bno") int bno ) {
+	public ModelAndView detailBoard(@RequestParam("b_no") int bno ) {
 		ModelAndView result = new ModelAndView();
 		BoardVO detail = boardService.getBoard(bno);
 		result.addObject("detail", detail);
@@ -73,7 +102,7 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "/boardModify")
-	public ModelAndView updateGetCommunity(@RequestParam("bno") int bno ) {
+	public ModelAndView updateGetCommunity(@RequestParam("b_no") int bno ) {
 		ModelAndView result = new ModelAndView();
 		BoardVO detail = boardService.getBoard(bno);
 		result.addObject("detail", detail);
@@ -81,13 +110,13 @@ public class BoardController {
 		return result;
 	}
 	@RequestMapping(value = "/removeBoard")
-	public String removeBoard(@RequestParam("bno") int bno ) {
+	public String removeBoard(@RequestParam("b_no") int bno ) {
 		boardService.removeBoard(bno);
 		return "redirect:/table";// table함수를 실행해 현재 db의 내용도 같이 가져감
 	}
 	
 	@RequestMapping(value = "/updateBoard")
-	public ModelAndView updateBoard(BoardVO board, @RequestParam("bno") int bno ) {
+	public ModelAndView updateBoard(BoardVO board, @RequestParam("b_no") int bno ) {
 		ModelAndView result = new ModelAndView();
 		boardService.modifyBoard(board);
 		result.setViewName("redirect:/table"); // table함수를 실행해 현재 db의 내용도 같이 가져감

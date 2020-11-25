@@ -21,4 +21,8 @@ public interface BoardMapper {
 	void updateBoard(BoardVO board);
 
 	void deleteBoard(int bno);
+
+	void insertBoard(BoardVO board);
+
+	ArrayList<String> getMovieName();
 }

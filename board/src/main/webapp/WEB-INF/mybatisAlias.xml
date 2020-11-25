@@ -4,8 +4,10 @@
 <configuration>
 	<!-- mybatis설정 파일 타입 별칭 -->
 	<typeAliases>
-		<typeAlias type="com.vod.movit.board.vo.BoardVO"
-			alias="board" />
+		<typeAlias type="com.vod.movit.board.vo.BoardVO" alias="board" />
 		<typeAlias type="com.vod.movit.user.vo.UserVO" alias="user" />
+		<typeAlias type="com.vod.movit.movie.vo.MovieVO" alias="movie" />
+		<typeAlias type="com.vod.movit.order.vo.CartVO" alias="cart" />
+		<typeAlias type="com.vod.movit.order.vo.PayVO" alias="pay" />
 	</typeAliases>
 </configuration>

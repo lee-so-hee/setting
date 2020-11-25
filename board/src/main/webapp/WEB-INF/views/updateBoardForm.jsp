@@ -33,121 +33,7 @@
 	crossorigin="anonymous"></script>
 </head>
 <body class="sb-nav-fixed">
-	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-		<a class="navbar-brand" href="index.html">VOD Portal System</a>
-		<button class="btn btn-link btn-sm order-1 order-lg-0"
-			id="sidebarToggle" href="#">
-			<i class="fas fa-bars"></i>
-		</button>
-		<!-- Navbar Search-->
-		<form
-			class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-			<div class="input-group">
-				<input class="form-control" type="text" placeholder="Search for..."
-					aria-label="Search" aria-describedby="basic-addon2" />
-				<div class="input-group-append">
-					<button class="btn btn-primary" type="button">
-						<i class="fas fa-search"></i>
-					</button>
-				</div>
-			</div>
-		</form>
-		<!-- Navbar-->
-		<ul class="navbar-nav ml-auto ml-md-0">
-			<li class="nav-item dropdown"><a
-				class="nav-link dropdown-toggle" id="userDropdown" href="#"
-				role="button" data-toggle="dropdown" aria-haspopup="true"
-				aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-				<div class="dropdown-menu dropdown-menu-right"
-					aria-labelledby="userDropdown">
-					<a class="dropdown-item" href="#">Settings</a> <a
-						class="dropdown-item" href="#">Activity Log</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="login.html">Logout</a>
-				</div></li>
-		</ul>
-	</nav>
-	<div id="layoutSidenav">
-		<div id="layoutSidenav_nav">
-			<nav class="sb-sidenav accordion sb-sidenav-dark"
-				id="sidenavAccordion">
-				<div class="sb-sidenav-menu">
-					<div class="nav">
-						<div class="sb-sidenav-menu-heading">Movie</div>
-						<a class="nav-link" href="index.html">
-							<div class="sb-nav-link-icon">
-								<i class="fas fa-tachometer-alt"></i>
-							</div> Detail
-						</a>
-						<div class="sb-sidenav-menu-heading">Interface</div>
-						<a class="nav-link collapsed" href="#" data-toggle="collapse"
-							data-target="#collapseLayouts" aria-expanded="false"
-							aria-controls="collapseLayouts">
-							<div class="sb-nav-link-icon">
-								<i class="fas fa-columns"></i>
-							</div> 2
-							<div class="sb-sidenav-collapse-arrow">
-								<i class="fas fa-angle-down"></i>
-							</div>
-						</a>
-						<div class="collapse" id="collapseLayouts"
-							aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="layout-static.html">Static
-									Navigation</a> <a class="nav-link" href="layout-sidenav-light.html">Light
-									Sidenav</a>
-							</nav>
-						</div>
-						<a class="nav-link collapsed" href="#" data-toggle="collapse"
-							data-target="#collapsePages" aria-expanded="false"
-							aria-controls="collapsePages">
-							<div class="sb-nav-link-icon">
-								<i class="fas fa-book-open"></i>
-							</div> My Page
-							<div class="sb-sidenav-collapse-arrow">
-								<i class="fas fa-angle-down"></i>
-							</div>
-						</a>
-						<div class="collapse" id="collapsePages"
-							aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
-							<nav class="sb-sidenav-menu-nested nav accordion"
-								id="sidenavAccordionPages">
-								<a class="nav-link collapsed" href="#" data-toggle="collapse"
-									data-target="#pagesCollapseAuth" aria-expanded="false"
-									aria-controls="pagesCollapseAuth"> Authentication
-									<div class="sb-sidenav-collapse-arrow">
-										<i class="fas fa-angle-down"></i>
-									</div>
-								</a>
-								<div class="collapse" id="pagesCollapseAuth"
-									aria-labelledby="headingOne"
-									data-parent="#sidenavAccordionPages">
-									<nav class="sb-sidenav-menu-nested nav">
-										<a class="nav-link" href="login">Login</a> <a class="nav-link"
-											href="register">Register</a> <a class="nav-link"
-											href="password">Forgot Password</a>
-									</nav>
-								</div>
-							</nav>
-						</div>
-						<div class="sb-sidenav-menu-heading">Addons</div>
-						<a class="nav-link" href="charts.html">
-							<div class="sb-nav-link-icon">
-								<i class="fas fa-chart-area"></i>
-							</div> Charts
-						</a> <a class="nav-link" href="table">
-							<div class="sb-nav-link-icon">
-								<i class="fas fa-table"></i>
-							</div> Board
-						</a>
-					</div>
-				</div>
-				<div class="sb-sidenav-footer">
-					<div class="small">Logged in as:</div>
-					MovIT
-				</div>
-			</nav>
-		</div>
+<jsp:include page="/WEB-INF/views/header.jsp" />
 		<div id="layoutSidenav_content">
 			<main>
 				<div class="container-fluid">
@@ -162,24 +48,24 @@
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
-								<form action="updateBoard?bno=${detail.bno }" method="POST">
-									<input type="hidden" name="bno" value="${detail.bno }">
+								<form action="updateBoard?b_no=${detail.b_no }" method="POST">
+									<input type="hidden" name="b_no" value="${detail.b_no }">
 									<table class="table table-bordered" id="dataTable" width="100%"	align="center">
 										<tr>
 											<td width="100">제목</td>
 											<td colspan="3"><input type="text"
-												name="title" id="title"
-												value="${detail.title }"></td>
+												name="b_title" id="title"
+												value="${detail.b_title }"></td>
 										</tr>
 										<tr>
 											<td>닉네임</td>
-											<td>${detail.writer}</td>
+											<td>${detail.b_writer}</td>
 											<td>작성일</td>
-											<td>${detail.regDate }</td>
+											<td>${detail.b_regDate }</td>
 										</tr>
 										<tr>
 											<td width="100">내용</td>
-											<td colspan="3"><textarea rows="20" cols="50" name="content">${detail.content }</textarea></td>
+											<td colspan="3"><textarea rows="20" cols="50" name="b_content">${detail.b_content }</textarea></td>
 										</tr>
 										<!--
 										<tr>

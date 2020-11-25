@@ -11,7 +11,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>VOD Portal System</title>
+<title>VOD Portal System - 게시판</title>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon"
 	href="${pageContext.request.contextPath }/resources/assets/img/favicon.ico" />
@@ -33,121 +33,8 @@
 	crossorigin="anonymous"></script>
 </head>
 <body class="sb-nav-fixed">
-	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-		<a class="navbar-brand" href="index.html">VOD Portal System</a>
-		<button class="btn btn-link btn-sm order-1 order-lg-0"
-			id="sidebarToggle" href="#">
-			<i class="fas fa-bars"></i>
-		</button>
-		<!-- Navbar Search-->
-		<form
-			class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-			<div class="input-group">
-				<input class="form-control" type="text" placeholder="Search for..."
-					aria-label="Search" aria-describedby="basic-addon2" />
-				<div class="input-group-append">
-					<button class="btn btn-primary" type="button">
-						<i class="fas fa-search"></i>
-					</button>
-				</div>
-			</div>
-		</form>
-		<!-- Navbar-->
-		<ul class="navbar-nav ml-auto ml-md-0">
-			<li class="nav-item dropdown"><a
-				class="nav-link dropdown-toggle" id="userDropdown" href="#"
-				role="button" data-toggle="dropdown" aria-haspopup="true"
-				aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-				<div class="dropdown-menu dropdown-menu-right"
-					aria-labelledby="userDropdown">
-					<a class="dropdown-item" href="#">Settings</a> <a
-						class="dropdown-item" href="#">Activity Log</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="login.html">Logout</a>
-				</div></li>
-		</ul>
-	</nav>
-	<div id="layoutSidenav">
-		<div id="layoutSidenav_nav">
-			<nav class="sb-sidenav accordion sb-sidenav-dark"
-				id="sidenavAccordion">
-				<div class="sb-sidenav-menu">
-					<div class="nav">
-						<div class="sb-sidenav-menu-heading">Movie</div>
-						<a class="nav-link" href="index.html">
-							<div class="sb-nav-link-icon">
-								<i class="fas fa-tachometer-alt"></i>
-							</div> Detail
-						</a>
-						<div class="sb-sidenav-menu-heading">Interface</div>
-						<a class="nav-link collapsed" href="#" data-toggle="collapse"
-							data-target="#collapseLayouts" aria-expanded="false"
-							aria-controls="collapseLayouts">
-							<div class="sb-nav-link-icon">
-								<i class="fas fa-columns"></i>
-							</div> 2
-							<div class="sb-sidenav-collapse-arrow">
-								<i class="fas fa-angle-down"></i>
-							</div>
-						</a>
-						<div class="collapse" id="collapseLayouts"
-							aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="layout-static.html">Static
-									Navigation</a> <a class="nav-link" href="layout-sidenav-light.html">Light
-									Sidenav</a>
-							</nav>
-						</div>
-						<a class="nav-link collapsed" href="#" data-toggle="collapse"
-							data-target="#collapsePages" aria-expanded="false"
-							aria-controls="collapsePages">
-							<div class="sb-nav-link-icon">
-								<i class="fas fa-book-open"></i>
-							</div> My Page
-							<div class="sb-sidenav-collapse-arrow">
-								<i class="fas fa-angle-down"></i>
-							</div>
-						</a>
-						<div class="collapse" id="collapsePages"
-							aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
-							<nav class="sb-sidenav-menu-nested nav accordion"
-								id="sidenavAccordionPages">
-								<a class="nav-link collapsed" href="#" data-toggle="collapse"
-									data-target="#pagesCollapseAuth" aria-expanded="false"
-									aria-controls="pagesCollapseAuth"> Authentication
-									<div class="sb-sidenav-collapse-arrow">
-										<i class="fas fa-angle-down"></i>
-									</div>
-								</a>
-								<div class="collapse" id="pagesCollapseAuth"
-									aria-labelledby="headingOne"
-									data-parent="#sidenavAccordionPages">
-									<nav class="sb-sidenav-menu-nested nav">
-										<a class="nav-link" href="login">Login</a> <a class="nav-link"
-											href="register">Register</a> <a class="nav-link"
-											href="password">Forgot Password</a>
-									</nav>
-								</div>
-							</nav>
-						</div>
-						<div class="sb-sidenav-menu-heading">Addons</div>
-						<a class="nav-link" href="charts.html">
-							<div class="sb-nav-link-icon">
-								<i class="fas fa-chart-area"></i>
-							</div> Charts
-						</a> <a class="nav-link" href="table">
-							<div class="sb-nav-link-icon">
-								<i class="fas fa-table"></i>
-							</div> Board
-						</a>
-					</div>
-				</div>
-				<div class="sb-sidenav-footer">
-					<div class="small">Logged in as:</div>
-					MovIT
-				</div>
-			</nav>
-		</div>
+	<jsp:include page="/WEB-INF/views/header.jsp" />
+	
 		<div id="layoutSidenav_content">
 			<main>
 				<div class="container-fluid">
@@ -165,37 +52,39 @@
 								<table class="table table-bordered" id="dataTable" width="100%">
 									<thead>
 										<tr>
-											<th>bno</th>
-											<th>title</th>
-											<th>writer</th>
-											<th>content</th>
-											<th>regDate</th>
-											<th>ViewCnt</th>
+											<th width="10%">순번</th>
+											<th width="15%">영화</th>
+											<th  width="40%">제목</th>
+											<th width="10%">작성자</th>
+											<th  width="15%">등록일</th>
+											<th width="10%">조회수</th>
 										</tr>
 									</thead>
 									<tfoot>
 										<tr>
-											<th>Name</th>
-											<th>Position</th>
-											<th>Office</th>
-											<th>Age</th>
-											<th>Start date</th>
-											<th>Salary</th>
+											<th>순번</th>
+											<th>영화</th>
+											<th>제목</th>
+											<th>작성자</th>
+											<th>등록일</th>
+											<th>조회수</th>
 										</tr>
 									</tfoot>
 									<tbody>
 										<c:forEach items="${boardList }" var="board">
 											<tr>
-												<td>${board.bno }</td>
-												<td><a href="detailBoard?bno=${board.bno }">${board.title }</a></td>
-												<td>${board.writer }</td>
-												<td>${board.content }</td>
-												<td>${board.regDate }</td>
-												<td>${board.viewCnt }</td>
+												<td>${board.b_no }</td>
+												<td>${board.title }</td>
+												<td><a href="detailBoard?b_no=${board.b_no }">${board.b_title }</a></td>
+												<td>${board.b_writer }</td>
+												<td>${board.b_regDate }</td>
+												<td>${board.b_viewCnt }</td>
 											</tr>
 										</c:forEach>
 									</tbody>
 								</table>
+								<a href="boardWriteForm"
+									class="btn btn-info" role="button">작성하기</a> 
 							</div>
 						</div>
 					</div>
