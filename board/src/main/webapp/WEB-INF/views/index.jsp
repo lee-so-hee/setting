@@ -65,7 +65,7 @@
 											<i class="fas fa-plus fa-3x"></i>
 										</div>
 									</div>
-									<img class="img-fluid" style="width:400px;height:500px;"
+									<img class="img-fluid" style="width:400px;height:500px;margin-bottom:30px;"
 										src="${pageContext.request.contextPath }/resources/assets/img/portfolio/${movie.m_title}.jpg"
 										alt="" />
 								</div>
