@@ -1,10 +1,10 @@
-package com.vod.movit.movie.dao;
+package com.vod.movit.movie.svc;
 
 import java.util.ArrayList;
 
 import com.vod.movit.movie.vo.MovieVO;
 
-public interface MovieDAO {
+public interface MovieService {
 
 	ArrayList<MovieVO> getMovieList();
 
