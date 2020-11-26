@@ -9,6 +9,7 @@ import com.vod.movit.movie.dao.MovieDAO;
 import com.vod.movit.movie.vo.MovieVO;
 import com.vod.movit.order.dao.OrderDAO;
 import com.vod.movit.order.vo.CartVO;
+import com.vod.movit.order.vo.PayVO;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -27,6 +28,39 @@ public class OrderServiceImpl implements OrderService {
 		// TODO Auto-generated method stub
 		CartVO cart = orderDAO.getCart();
 		return cart;
+	}
+
+	@Override
+	public ArrayList<CartVO> getCartList() {
+		// TODO Auto-generated method stub
+		ArrayList<CartVO> cartList = orderDAO.getCartList();
+		return cartList;
+	}
+
+	@Override
+	public void removeCart(int cno) {
+		// TODO Auto-generated method stub
+		orderDAO.removeCart(cno);
+	}
+
+	@Override
+	public void addPay(PayVO payVO) {
+		// TODO Auto-generated method stub
+		orderDAO.addPay(payVO);
+	}
+
+	@Override
+	public ArrayList<PayVO> getPayList() {
+		// TODO Auto-generated method stub
+		 ArrayList<PayVO> payList = orderDAO.getPayList();
+		return payList;
+	}
+
+	@Override
+	public PayVO getPay(int cno) {
+		// TODO Auto-generated method stub
+		PayVO pay = orderDAO.getPay(cno);
+		return pay;
 	}
 	
 	

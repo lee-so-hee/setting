@@ -20,7 +20,7 @@ public class CartVO  {
 			);
 			*/
 	private int c_no;
-	private String m_no;
+	private int m_no;
 	private String u_id;
 	private int c_money;
 	private Date c_orderDate;
@@ -32,10 +32,10 @@ public class CartVO  {
 	public void setC_no(int c_no) {
 		this.c_no = c_no;
 	}
-	public String getM_no() {
+	public int getM_no() {
 		return m_no;
 	}
-	public void setM_no(String m_no) {
+	public void setM_no(int m_no) {
 		this.m_no = m_no;
 	}
 	public String getU_id() {

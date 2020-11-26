@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="java.util.*,com.vod.movit.mybatis.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,11 +21,11 @@
             pg : 'kakaopay',
             pay_method : 'card',
             merchant_uid : 'merchant_' + new Date().getTime(),
-            name : 'KH Books 도서 결제',
-            amount : 10001,
-            buyer_email : 'rlalasrb117@naver.com',
-            buyer_name : '김민규',
-            buyer_tel : '010-2242-1399',
+            name : '${pay.m_title}',
+            amount : '${pay.p_money}',
+            buyer_email : '${pay.u_email}',
+            buyer_name : '${pay.u_name}',
+            buyer_tel : '${pay.u_phone}',
             buyer_addr : '서울',
             buyer_postcode : '123-456',
             //m_redirect_url : 'http://www.naver.com'

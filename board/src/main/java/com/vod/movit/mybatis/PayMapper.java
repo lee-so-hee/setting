@@ -5,15 +5,14 @@ import java.util.ArrayList;
 import com.vod.movit.board.vo.BoardVO;
 import com.vod.movit.movie.vo.MovieVO;
 import com.vod.movit.order.vo.CartVO;
+import com.vod.movit.order.vo.PayVO;
 
-public interface CartMapper {
+public interface PayMapper {
 
-	void insertCart(CartVO cart);
+	void insertPay(PayVO payVO);
 
-	CartVO getCart();
+	ArrayList<PayVO> selectPayList();
 
-	ArrayList<CartVO> getCartList();
-
-	void deleteCart(int cno);
+	PayVO selectPay(int cno);
 	
 }

@@ -42,21 +42,7 @@
 </head>
 <body class="sb-nav-fixed">
 	<jsp:include page="/WEB-INF/views/header.jsp" />
-	<c:choose>
-		<c:when test="${cartMsg=='success' }">
-			<script>
-				alert("장바구니 등록 완료.");
-			</script>
-		</c:when>
-		<c:when test="${cartMsg=='fail'}">
-			<script>
-				alert("해당 영화가 이미 장바구니에 있습니다.");
-			</script>
-		</c:when>
-		<c:otherwise>
-
-		</c:otherwise>
-	</c:choose>
+	
 	<div id="layoutSidenav_content" style="width:100%">
 
 		<main style="width:100%">
@@ -66,30 +52,21 @@
 					<div class="table-responsive" style="width:100%">
 						<input type="checkbox" name="all" class="cart-check-all"> <label>Check ALL</label>
 						<table class="table table-bordered" id="dataTable" style="width:100%;aling:center;">
-							<c:forEach items="${cartlist}" var="cart">
+							<c:forEach items="${payList}" var="pay">
 								<tr>
-									<td><input type="checkbox" name="${cart.c_no }" class="cartToPay"/></td>
+									<td><input type="checkbox" name="${pay.p_no }" class="cartToPay"/></td>
 									<td width="15%">제목</td>
-									<td colspan="2">${cart.title }</td>
-									<td>
-									<form action="addPay" method="POST">
-										<input type="hidden" name="c_no" value="${cart.c_no }"/>
-										<input type="hidden" name="m_no" value="${cart.m_no }"/>
-										<input type="hidden" name="u_id" value="${cart.u_id }"/>
-										<input type="hidden" name="p_money" value="${cart.c_money }"/>
-										<input type="submit" value="구매" class="btn btn-info"/>
-									</form>
-									</td>
-									<td><a href="removeCart?c_no=${cart.c_no }"
+									<td colspan="2">${pay.m_title }</td>
+									<td><a href="removeCart?p_no=${pay.p_no }"
 									class="btn btn-info" role="button">삭제</a></td>
 								</tr>
 								<tr>
 									<td>구매자</td>
-									<td>${cart.u_id }</td>
+									<td>${pay.u_id }</td>
 									<td width="15%">작성일</td>
-									<td>${cart.c_orderDate }</td>
+									<td>${pay.p_orderDate }</td>
 									<td width="15%">가격</td>
-									<td>${cart.c_money }</td>
+									<td>${pay.p_money }</td>
 								</tr>
 								<tr>
 									<td colspan="6"></td>

@@ -25,7 +25,7 @@
 
 
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-	<a class="navbar-brand" href="index.html">VOD Portal System</a>
+	<a class="navbar-brand" href="/">VOD Portal System</a>
 	<button class="btn btn-link btn-sm order-1 order-lg-0"
 		id="sidebarToggle" href="#">
 		<i class="fas fa-bars"></i>
@@ -108,8 +108,8 @@
 					<div class="collapse" id="collapsePages"
 						aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
 						<nav class="sb-sidenav-menu-nested nav">
-							<a class="nav-link" href="cart">장바구니</a>
-							<a class="nav-link" href="pay">결제목록</a> 
+							<a class="nav-link" href="cart">찜목록</a>
+							<a class="nav-link" href="payList">결제목록</a> 
 						</nav>
 					</div>
 					<div class="sb-sidenav-menu-heading">Board</div>

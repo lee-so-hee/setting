@@ -38,7 +38,14 @@ public class MovieController {
 		result.addObject("scoreList",gradeList);
 		result.addObject("audienceList",audienceList);
 		result.addObject("dateList",dateList);
-		
+		if(session.getAttribute("userName")!=null) {
+			result.addObject("msg", "success");
+		}
+		else {
+			result.addObject("msg",	"failure");
+			result.setViewName("login");
+			return result;
+		}
 		result.setViewName("index");
 		return result;
 		

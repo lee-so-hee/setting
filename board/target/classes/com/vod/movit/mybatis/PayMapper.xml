@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vod.movit.mybatis.PayMapper"> 
+<!-- Mapper의 패키지까지 정확하게 기술해야 한다. -->
+	
+	<resultMap type="com.vod.movit.order.vo.PayVO" id="PayResultMap">
+		<result property="p_no" column="P_NO" />
+		<result property="c_no" column="C_NSO" />
+		<result property="m_no" column="M_NO" />
+		<result property="u_id" column="U_ID" />
+		<result property="p_money" column="P_MONEY" />
+		<result property="p_orderDate" column="P_ORDERDATE" />
+	</resultMap>
+	
+	<insert id="insertPay" parameterType="pay">
+		INSERT INTO tbl_pay(p_no,c_no,m_no,u_id,p_money,p_orderDate)
+		values(tbl_pay_seq.nextval,#{c_no},#{m_no},#{u_id},10000,sysdate)
+	</insert>
+	<select id="selectPayList" resultType="pay">
+		SELECT p.p_no, p.p_money, m.m_title, p.p_orderDate FROM tbl_pay p, tbl_movie m WHERE p.m_no=m.m_no
+	</select>
+	<select id="selectPay" parameterType="int" resultType="pay">
+		SELECT u.u_email, m.m_title, u.u_name, u.u_phone, p.p_money 
+		FROM tbl_pay p, tbl_movie m , tbl_user u
+		WHERE p.m_no=m.m_no AND p.u_id=u.u_id AND c_no = #{c_no}
+	</select>
+</mapper>

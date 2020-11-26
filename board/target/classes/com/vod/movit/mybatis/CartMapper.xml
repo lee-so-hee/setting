@@ -18,10 +18,15 @@
 	<select id="getCart" resultType="cart" >
 		SELECT c.c_no,c.m_no,c.u_id,c.c_money,c.c_orderDate,m.m_title as title FROM tbl_cart c, tbl_movie m WHERE c.m_no=m.m_no
 	</select>
+	<select id="getCartList" resultType="cart" >
+		SELECT c.c_no,c.m_no,c.u_id,c.c_money,c.c_orderDate,m.m_title as title FROM tbl_cart c, tbl_movie m WHERE c.m_no=m.m_no
+	</select>
 	
 	<insert id="insertCart" parameterType="cart">
 		INSERT INTO tbl_cart(c_no,m_no,u_id,c_money,c_orderDate)
 		values(tbl_cart_seq.nextval,#{m_no},#{u_id},10000,sysdate)
 	</insert>
-	
+	<delete id="deleteCart" parameterType="int">
+		DELETE FROM tbl_cart WHERE c_no = #{c_no}
+	</delete>
 </mapper>

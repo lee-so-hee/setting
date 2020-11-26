@@ -170,11 +170,11 @@
 												줄거리</p>
 											<p style="font-size: 20px; font-family: Do Hyeon">${movie.m_content }</p>
 											<br>
-											<form action="cart" method="POST">
+											<form action="addCart" method="POST">
 												<input type="hidden" name="m_no" value="${movie.m_no }" /> 
 												<input type="hidden" name="u_id" value="${sessionScope.userId }" /> 
-												<input type="submit" value="장바구니 담기">
-											</form>
+												<input type="submit" class="btn btn-info" value="장바구니 담기">
+											
 											<button class="btn btn-primary" data-dismiss="modal">
 												<i class="fas fa-times fa-fw"></i> 닫기
 											</button>
@@ -182,6 +182,7 @@
 												onclick="location.href='table'">
 												<i class="fas fa-table mr-1"></i> 게시판
 											</button>
+											</form>
 										</div>
 									</div>
 								</div>
