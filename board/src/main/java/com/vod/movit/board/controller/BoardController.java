@@ -1,10 +1,13 @@
 package com.vod.movit.board.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -116,10 +119,8 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "/updateBoard")
-	public ModelAndView updateBoard(BoardVO board, @RequestParam("b_no") int bno ) {
-		ModelAndView result = new ModelAndView();
+	public String updateBoard(BoardVO board, @RequestParam("b_no") int bno,HttpServletResponse response) throws IOException {
 		boardService.modifyBoard(board);
-		result.setViewName("redirect:/table"); // table함수를 실행해 현재 db의 내용도 같이 가져감
-		return result;
+		return "redirect:/table";
 	}
 }

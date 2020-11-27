@@ -38,6 +38,19 @@ public class MovieController {
 		result.addObject("scoreList",gradeList);
 		result.addObject("audienceList",audienceList);
 		result.addObject("dateList",dateList);
+		result.setViewName("index");
+		return result;
+		
+	}
+	@RequestMapping(value="/index")
+	public ModelAndView index(HttpSession session) {
+		ModelAndView result = new ModelAndView();
+		ArrayList<MovieVO> gradeList = movieService.getScoreList();
+		ArrayList<MovieVO> audienceList = movieService.getAudienceList();
+		ArrayList<MovieVO> dateList = movieService.getDateList();
+		result.addObject("scoreList",gradeList);
+		result.addObject("audienceList",audienceList);
+		result.addObject("dateList",dateList);
 		if(session.getAttribute("userName")!=null) {
 			result.addObject("msg", "success");
 		}
@@ -50,6 +63,7 @@ public class MovieController {
 		return result;
 		
 	}
+	
 	@RequestMapping(value="/movie")
 	public ModelAndView movie(HttpSession session) {
 		ModelAndView result = new ModelAndView();

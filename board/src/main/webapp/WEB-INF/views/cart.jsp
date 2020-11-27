@@ -31,7 +31,8 @@
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
 	crossorigin="anonymous"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
 	$(document).ready(function() {
 		$('.cart-check-all').click(function() {
@@ -53,35 +54,44 @@
 				alert("해당 영화가 이미 장바구니에 있습니다.");
 			</script>
 		</c:when>
+		<c:when test="${null eq cartlist}">
+			<script>
+				alert("찜하신 상품이 존재하지 않습니다.");
+				location.href="index";
+			</script>
+		</c:when>
 		<c:otherwise>
 
 		</c:otherwise>
 	</c:choose>
-	<div id="layoutSidenav_content" style="width:100%">
+	<div id="layoutSidenav_content" style="width: 100%">
 
-		<main style="width:100%">
-			<div class="container-fluid" style="width:100%">
+		<main style="width: 100%">
+			<div class="container-fluid" style="width: 100%">
 
-				<div class="card-body" style="width:100%">
-					<div class="table-responsive" style="width:100%">
-						<input type="checkbox" name="all" class="cart-check-all"> <label>Check ALL</label>
-						<table class="table table-bordered" id="dataTable" style="width:100%;aling:center;">
+				<div class="card-body" style="width: 100%">
+					<div class="table-responsive" style="width: 100%">
+						<input type="checkbox" name="all" class="cart-check-all">
+						<label>Check ALL</label>
+						<table class="table table-bordered" id="dataTable"
+							style="width: 100%; aling: center;">
 							<c:forEach items="${cartlist}" var="cart">
 								<tr>
-									<td><input type="checkbox" name="${cart.c_no }" class="cartToPay"/></td>
+									<td><input type="checkbox" name="${cart.c_no }"
+										class="cartToPay" /></td>
 									<td width="15%">제목</td>
 									<td colspan="2">${cart.title }</td>
 									<td>
-									<form action="addPay" method="POST">
-										<input type="hidden" name="c_no" value="${cart.c_no }"/>
-										<input type="hidden" name="m_no" value="${cart.m_no }"/>
-										<input type="hidden" name="u_id" value="${cart.u_id }"/>
-										<input type="hidden" name="p_money" value="${cart.c_money }"/>
-										<input type="submit" value="구매" class="btn btn-info"/>
-									</form>
+										<form action="addPay" method="POST">
+											<input type="hidden" name="c_no" value="${cart.c_no }" /> <input
+												type="hidden" name="m_no" value="${cart.m_no }" /> <input
+												type="hidden" name="u_id" value="${cart.u_id }" /> <input
+												type="hidden" name="p_money" value="${cart.c_money }" /> <input
+												type="submit" value="구매" class="btn btn-info" />
+										</form>
 									</td>
 									<td><a href="removeCart?c_no=${cart.c_no }"
-									class="btn btn-info" role="button">삭제</a></td>
+										class="btn btn-info" role="button">삭제</a></td>
 								</tr>
 								<tr>
 									<td>구매자</td>
@@ -95,28 +105,25 @@
 									<td colspan="6"></td>
 								</tr>
 							</c:forEach>
-							
+
 						</table>
 					</div>
 				</div>
 			</div>
-	</div>
-	</main>
-	<footer class="py-4 bg-light mt-auto">
-		<div class="container-fluid">
-			<div class="d-flex align-items-center justify-content-between small">
-				<div class="text-muted">Copyright &copy; Your Website 2020</div>
-				<div>
-					<a href="#">Privacy Policy</a> &middot; <a href="#">Terms &amp;
-						Conditions</a>
+		</main>
+		<footer class="py-4 bg-light mt-auto">
+			<div class="container-fluid">
+				<div class="d-flex align-items-center justify-content-between small">
+					<div class="text-muted">Copyright &copy; MovIT</div>
 				</div>
 			</div>
-		</div>
-	</footer>
+		</footer>
 	</div>
-	</div>
+
+
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-		crossorigin="anonymous"></script>s
+		crossorigin="anonymous"></script>
+	s
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>

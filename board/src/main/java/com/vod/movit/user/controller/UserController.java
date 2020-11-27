@@ -1,10 +1,13 @@
 package com.vod.movit.user.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -44,13 +47,18 @@ public class UserController {
 
 	// 로그인 처리
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public ModelAndView loginCheck(@ModelAttribute("user") @Validated UserVO user, HttpSession session) {
+	public ModelAndView loginCheck(@ModelAttribute("user") @Validated UserVO user, HttpSession session,HttpServletResponse response) throws IOException {
 		boolean result = userService.loginCheck(user, session);
 		ModelAndView mav = new ModelAndView();
+		response.setContentType("text/html; charset=UTF-8");
+		 
+		PrintWriter out = response.getWriter();
 		if (result == true) {
-			mav.setViewName("redirect:/");
+			mav.setViewName("redirect:/index");
 			mav.addObject("msg", "success");
 		} else {
+			out.println("<script>alert('아이디와 비밀번호를 확인하세요'); location.href='login';</script>");
+			out.flush();
 			mav.setViewName("login");
 			mav.addObject("msg", "failure");
 		}

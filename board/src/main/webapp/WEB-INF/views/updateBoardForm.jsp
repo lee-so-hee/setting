@@ -33,41 +33,39 @@
 	crossorigin="anonymous"></script>
 </head>
 <body class="sb-nav-fixed">
-<jsp:include page="/WEB-INF/views/header.jsp" />
-		<div id="layoutSidenav_content">
-			<main>
-				<div class="container-fluid">
-					<h1 class="mt-4">게시판 수정</h1>
-					<ol class="breadcrumb mb-4">
-						<li class="breadcrumb-item active">게시판 수정</li>
-					</ol>
+	<jsp:include page="/WEB-INF/views/header.jsp" />
+	<div id="layoutSidenav_content">
+		<main>
+			<div class="container-fluid">
+				<h1 class="mt-4">게시판 수정</h1>
 
-					<div class="card mb-4">
-						<div class="card-header">
-							<i class="fas fa-table mr-1"></i> 게시판 수정
-						</div>
-						<div class="card-body">
-							<div class="table-responsive">
-								<form action="updateBoard?b_no=${detail.b_no }" method="POST">
-									<input type="hidden" name="b_no" value="${detail.b_no }">
-									<table class="table table-bordered" id="dataTable" width="100%"	align="center">
-										<tr>
-											<td width="100">제목</td>
-											<td colspan="3"><input type="text"
-												name="b_title" id="title"
-												value="${detail.b_title }"></td>
-										</tr>
-										<tr>
-											<td>닉네임</td>
-											<td>${detail.b_writer}</td>
-											<td>작성일</td>
-											<td>${detail.b_regDate }</td>
-										</tr>
-										<tr>
-											<td width="100">내용</td>
-											<td colspan="3"><textarea rows="20" cols="50" name="b_content">${detail.b_content }</textarea></td>
-										</tr>
-										<!--
+				<div class="card mb-4">
+					<div class="card-header">
+						<i class="fas fa-table mr-1"></i> 게시판 수정
+					</div>
+					<div class="card-body">
+						<div class="table-responsive">
+							<form action="updateBoard?b_no=${detail.b_no }" method="POST">
+								<input type="hidden" name="b_no" value="${detail.b_no }">
+								<table class="table table-bordered" id="dataTable" width="100%"
+									align="center">
+									<tr>
+										<td width="100">제목</td>
+										<td colspan="3"><input type="text" name="b_title"
+											id="title" value="${detail.b_title }"></td>
+									</tr>
+									<tr>
+										<td>닉네임</td>
+										<td>${detail.b_writer}</td>
+										<td>작성일</td>
+										<td>${detail.b_regDate }</td>
+									</tr>
+									<tr>
+										<td width="100">내용</td>
+										<td colspan="3"><textarea rows="20" cols="50"
+												name="b_content">${detail.b_content }</textarea></td>
+									</tr>
+									<!--
 										<tr>
 											<td width="100">비밀번호</td>
 											<td colspan="3"><p style="color: red;">
@@ -76,27 +74,21 @@
 												id="password"></td>
 										</tr>
 										  -->
-									</table>
-									<br /> <input type="submit" value="수정">
-								</form>
-							</div>
+								</table>
+								<br /> <input type="submit" value="수정">
+							</form>
 						</div>
 					</div>
 				</div>
-			</main>
-			<footer class="py-4 bg-light mt-auto">
-				<div class="container-fluid">
-					<div
-						class="d-flex align-items-center justify-content-between small">
-						<div class="text-muted">Copyright &copy; Your Website 2020</div>
-						<div>
-							<a href="#">Privacy Policy</a> &middot; <a href="#">Terms
-								&amp; Conditions</a>
-						</div>
-					</div>
+			</div>
+		</main>
+		<footer class="py-4 bg-light mt-auto">
+			<div class="container-fluid">
+				<div class="d-flex align-items-center justify-content-between small">
+					<div class="text-muted">Copyright &copy; MovIT</div>
 				</div>
-			</footer>
-		</div>
+			</div>
+		</footer>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		crossorigin="anonymous"></script>

@@ -13,7 +13,7 @@ public class BoardServiceImpl implements BoardService {
 
 	@Autowired
 	private BoardDAO boardDAO;
-	
+
 	@Override
 	public ArrayList<BoardVO> getBoardList() {
 		// TODO Auto-generated method stub

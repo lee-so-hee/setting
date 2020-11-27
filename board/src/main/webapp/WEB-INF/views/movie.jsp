@@ -48,8 +48,7 @@
 				<div class="container">
 					<br /> <br />
 					<!-- Portfolio Section Heading-->
-					<h2
-						class="page-section-heading text-center text-uppercase text-secondary mb-0">영화</h2>
+					<h1 class="mt-4">영화</h1>
 					<br /> <br />
 					<!-- Icon Divider-->
 					<div class="divider-custom">

@@ -33,57 +33,47 @@
 	crossorigin="anonymous"></script>
 </head>
 <body class="sb-nav-fixed">
-<jsp:include page="/WEB-INF/views/header.jsp" />
-		<div id="layoutSidenav_content">
-			<main>
-				<div class="container-fluid">
-					<h1 class="mt-4">${detail.b_title }</h1>
-					<ol class="breadcrumb mb-4">
-						<li class="breadcrumb-item active">${detail.b_title }</li>
-					</ol>
+	<jsp:include page="/WEB-INF/views/header.jsp" />
+	<div id="layoutSidenav_content">
+		<main>
+			<div class="container-fluid">
+				<h1 class="mt-4">${detail.b_title }</h1>
 
-						<div class="card-body">
-							<div class="table-responsive">
-								<a href="boardModify?b_no=${detail.b_no }"
-									class="btn btn-info" role="button">수정</a> 
-								<a href="removeBoard?b_no=${detail.b_no }"
-									class="btn btn-info" role="button">삭제</a>
-								<table class="table table-bordered" id="dataTable" width="100%" align="center">
-									<tr>
-										<td width="15%">제목</td>
-										<td colspan="5">${detail.b_title }</td>
-									</tr>
-									<tr>
-										<td>작성자</td>
-										<td>${detail.b_writer }</td>
-										<td width="15%">작성일</td>
-										<td>${detail.b_regDate }</td>
-										<td width="15%">조회수</td>
-										<td>${detail.b_viewCnt }</td>
-									</tr>
-									<tr>
-										<td width="100">내용</td>
-										<td colspan="5"><p>${detail.b_content }</p></td>
-									</tr>
-								</table>
-							</div>
-						</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<a href="boardModify?b_no=${detail.b_no }" class="btn btn-info"
+							role="button">수정</a> <a href="removeBoard?b_no=${detail.b_no }"
+							class="btn btn-info" role="button">삭제</a>
+						<table class="table table-bordered" id="dataTable" width="100%"
+							align="center">
+							<tr>
+								<td width="15%">제목</td>
+								<td colspan="5">${detail.b_title }</td>
+							</tr>
+							<tr>
+								<td>작성자</td>
+								<td>${detail.b_writer }</td>
+								<td width="15%">작성일</td>
+								<td>${detail.b_regDate }</td>
+								<td width="15%">조회수</td>
+								<td>${detail.b_viewCnt }</td>
+							</tr>
+							<tr>
+								<td width="100">내용</td>
+								<td colspan="5"><p>${detail.b_content }</p></td>
+							</tr>
+						</table>
 					</div>
 				</div>
-			</main>
-			<footer class="py-4 bg-light mt-auto">
-				<div class="container-fluid">
-					<div
-						class="d-flex align-items-center justify-content-between small">
-						<div class="text-muted">Copyright &copy; Your Website 2020</div>
-						<div>
-							<a href="#">Privacy Policy</a> &middot; <a href="#">Terms
-								&amp; Conditions</a>
-						</div>
-					</div>
+			</div>
+		</main>
+		<footer class="py-4 bg-light mt-auto">
+			<div class="container-fluid">
+				<div class="d-flex align-items-center justify-content-between small">
+					<div class="text-muted">Copyright &copy; MovIT</div>
 				</div>
-			</footer>
-		</div>
+			</div>
+		</footer>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		crossorigin="anonymous"></script>
