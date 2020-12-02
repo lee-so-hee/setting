@@ -11,7 +11,7 @@ public interface PayMapper {
 
 	void insertPay(PayVO payVO);
 
-	ArrayList<PayVO> selectPayList();
+	ArrayList<PayVO> selectPayList(String user);
 
 	PayVO selectPay(int cno);
 	

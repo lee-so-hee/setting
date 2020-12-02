@@ -59,7 +59,7 @@
 </style>
 
 </head>
-<body class="sb-nav-fixed">
+<body class="sb-nav-fixed" style="font-family: Do Hyeon;">
 
 	<jsp:include page="/WEB-INF/views/header.jsp" />
 
@@ -74,11 +74,13 @@
 
 
 					<br /> <br />
-					<!-- Icon Divider-->
+					<!-- Icon Divider-->	
 					<div class="divider-custom">
 						<div class="divider-custom-line"></div>
 					</div>
 					<!-- Portfolio Grid Items-->
+					<h1 id="mtitle" style="text-align:center; font-size:70px;">MovIT</h1>
+					<br />
 					<div class="row justify-content-center">
 						<div class="tab">
 							<table border="0" cellpadding="0" cellspacing="1" width="480"

@@ -34,7 +34,7 @@
 </head>
 <body class="sb-nav-fixed">
 	<jsp:include page="/WEB-INF/views/header.jsp" />
-	<div id="layoutSidenav_content">
+	<div id="layoutSidenav_content" style="font-family: Do Hyeon;">
 		<main>
 			<div class="container-fluid">
 				<h1 class="mt-4">게시판 수정</h1>

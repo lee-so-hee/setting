@@ -23,8 +23,12 @@
 	href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"
 	rel="stylesheet" crossorigin="anonymous" />
 
-
-<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+<style>
+@import
+	url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&display=swap')
+	;
+</style>
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark" style="font-family: Do Hyeon;">
 	<a class="navbar-brand" href="index">VOD Portal System</a>
 	<button class="btn btn-link btn-sm order-1 order-lg-0"
 		id="sidebarToggle" href="#">
@@ -34,13 +38,7 @@
 	<form
 		class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
 		<div class="input-group">
-			<input class="form-control" type="text" placeholder="Search for..."
-				aria-label="Search" aria-describedby="basic-addon2" />
-			<div class="input-group-append">
-				<button class="btn btn-primary" type="button">
-					<i class="fas fa-search"></i>
-				</button>
-			</div>
+			
 		</div>
 	</form>
 	<!-- Navbar-->

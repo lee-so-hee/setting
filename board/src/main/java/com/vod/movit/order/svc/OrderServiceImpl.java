@@ -31,9 +31,9 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public ArrayList<CartVO> getCartList() {
+	public ArrayList<CartVO> getCartList(String user) {
 		// TODO Auto-generated method stub
-		ArrayList<CartVO> cartList = orderDAO.getCartList();
+		ArrayList<CartVO> cartList = orderDAO.getCartList(user);
 		return cartList;
 	}
 
@@ -50,9 +50,9 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public ArrayList<PayVO> getPayList() {
+	public ArrayList<PayVO> getPayList(String user) {
 		// TODO Auto-generated method stub
-		 ArrayList<PayVO> payList = orderDAO.getPayList();
+		 ArrayList<PayVO> payList = orderDAO.getPayList(user);
 		return payList;
 	}
 

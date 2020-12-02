@@ -12,13 +12,13 @@ public interface OrderService {
 
 	CartVO getCart();
 
-	ArrayList<CartVO> getCartList();
+	ArrayList<CartVO> getCartList(String user);
 
 	void removeCart(int cno);
 
 	void addPay(PayVO payVO);
 
-	ArrayList<PayVO> getPayList();
+	ArrayList<PayVO> getPayList(String user);
 
 	PayVO getPay(int cno);
 

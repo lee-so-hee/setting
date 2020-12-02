@@ -41,17 +41,17 @@
 	});
 </script>
 </head>
-<body class="sb-nav-fixed">
+<body class="sb-nav-fixed" style="font-family: Do Hyeon;">
 	<jsp:include page="/WEB-INF/views/header.jsp" />
 	<c:choose>
 		<c:when test="${cartMsg=='success' }">
 			<script>
-				alert("장바구니 등록 완료.");
+				alert("찜 등록 완료.");
 			</script>
 		</c:when>
 		<c:when test="${cartMsg=='fail'}">
 			<script>
-				alert("해당 영화가 이미 장바구니에 있습니다.");
+				alert("해당 영화가 이미 찜목록에 있습니다.");
 			</script>
 		</c:when>
 		<c:when test="${null eq cartlist}">
@@ -68,7 +68,7 @@
 
 		<main style="width: 100%">
 			<div class="container-fluid" style="width: 100%">
-
+				<h1>찜 목록</h1>
 				<div class="card-body" style="width: 100%">
 					<div class="table-responsive" style="width: 100%">
 						<input type="checkbox" name="all" class="cart-check-all">

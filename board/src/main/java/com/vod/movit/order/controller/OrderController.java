@@ -47,7 +47,8 @@ public class OrderController {
 			result.setViewName("login");
 			return result;
 		}
-		ArrayList<CartVO> hasMno = orderService.getCartList();
+		String user = (String)session.getAttribute("userId");
+		ArrayList<CartVO> hasMno = orderService.getCartList(user);
 		
 		for (CartVO cartVO : hasMno) {
 			int m_no = cartVO.getM_no();
@@ -61,7 +62,7 @@ public class OrderController {
 			}
 		}
 		orderService.addCart(cart);
-		ArrayList<CartVO> cartList = orderService.getCartList();
+		ArrayList<CartVO> cartList = orderService.getCartList(user);
 		result.addObject("cartlist",cartList);
 		result.addObject("cartMsg", "success");
 		result.setViewName("cart");
@@ -79,7 +80,8 @@ public class OrderController {
 			result.setViewName("login");
 			return result;
 		}
-		ArrayList<CartVO> cartList = orderService.getCartList();
+		String user = (String)session.getAttribute("userId");
+		ArrayList<CartVO> cartList = orderService.getCartList(user);
 		result.addObject("cartlist",cartList);
 		result.setViewName("cart");
 		return result;
@@ -119,8 +121,6 @@ public class OrderController {
 	@RequestMapping(value="/payList")
 	public ModelAndView payList(HttpSession session) {
 		ModelAndView result = new ModelAndView();
-		ArrayList<PayVO> payList = orderService.getPayList(); // 결제 목록 가져오기
-		
 		if(session.getAttribute("userName")!=null) {
 			result.addObject("msg", "success");
 		}
@@ -129,6 +129,10 @@ public class OrderController {
 			result.setViewName("login");
 			return result;
 		}
+		
+		String user = (String)session.getAttribute("userId");
+		ArrayList<PayVO> payList = orderService.getPayList(user); // 결제 목록 가져오기
+		
 		result.addObject("payList", payList);
 		result.setViewName("payList");
 		//페이 창에서 결제 된거 띄어주기

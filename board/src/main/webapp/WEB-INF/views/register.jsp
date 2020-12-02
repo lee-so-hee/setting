@@ -38,8 +38,13 @@
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
 	crossorigin="anonymous"></script>
+	<style>
+@import
+	url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&display=swap')
+	;
+</style>
 </head>
-<body class="bg-primary">
+<body class="bg-primary" style="font-family: Do Hyeon;">
 	<div id="layoutAuthentication">
 		<div id="layoutAuthentication_content">
 			<main>
@@ -101,7 +106,7 @@
 							</div>
 							<div class="card-footer text-center">
 								<div class="small">
-									<a href="login.html">Have an account? Go to login</a>
+									<a href="login.html">가입이 되있으신가요? 로그인하러 가기</a>
 								</div>
 							</div>
 						</div>

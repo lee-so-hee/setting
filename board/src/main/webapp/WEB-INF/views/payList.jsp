@@ -41,10 +41,10 @@
 	});
 </script>
 </head>
-<body class="sb-nav-fixed">
+<body class="sb-nav-fixed" style="font-family: Do Hyeon;">
 	<jsp:include page="/WEB-INF/views/header.jsp" />
 	<c:choose>
-		<c:when test="${null eq paylist }">
+		<c:when test="${null eq payList }">
 			<script>
 				alert("결제하신 상품이 존재하지 않습니다.");
 				location.href="index";
@@ -58,7 +58,7 @@
 
 		<main style="width: 100%">
 			<div class="container-fluid" style="width: 100%">
-
+				<h1>결제 목록</h1>
 				<div class="card-body" style="width: 100%">
 					<div class="table-responsive" style="width: 100%">
 						<input type="checkbox" name="all" class="cart-check-all">

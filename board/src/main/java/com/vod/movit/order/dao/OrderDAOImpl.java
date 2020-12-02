@@ -35,10 +35,10 @@ public class OrderDAOImpl implements OrderDAO {
 	}
 
 	@Override
-	public ArrayList<CartVO> getCartList() {
+	public ArrayList<CartVO> getCartList(String user) {
 		// TODO Auto-generated method stub
 		CartMapper cartMapper = sqlSession.getMapper(CartMapper.class);
-		ArrayList<CartVO> cartList = cartMapper.getCartList();
+		ArrayList<CartVO> cartList = cartMapper.getCartList(user);
 		return cartList;
 	}
 
@@ -57,11 +57,11 @@ public class OrderDAOImpl implements OrderDAO {
 	}
 
 	@Override
-	public ArrayList<PayVO> getPayList() {
+	public ArrayList<PayVO> getPayList(String user) {
 		// TODO Auto-generated method stub
 		ArrayList<PayVO> payList = new ArrayList<PayVO>();
 		PayMapper payMapper = sqlSession.getMapper(PayMapper.class);
-		payList = payMapper.selectPayList();
+		payList = payMapper.selectPayList(user);
 		return payList;
 	}
 

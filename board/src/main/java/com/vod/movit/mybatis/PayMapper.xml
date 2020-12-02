@@ -18,8 +18,8 @@
 		INSERT INTO tbl_pay(p_no,c_no,m_no,u_id,p_money,p_orderDate)
 		values(tbl_pay_seq.nextval,#{c_no},#{m_no},#{u_id},10000,sysdate)
 	</insert>
-	<select id="selectPayList" resultType="pay">
-		SELECT p.p_no, p.p_money, m.m_title, p.p_orderDate FROM tbl_pay p, tbl_movie m WHERE p.m_no=m.m_no
+	<select id="selectPayList" resultType="pay" parameterType="String">
+		SELECT p.p_no, p.p_money, m.m_title, p.p_orderDate, p.u_id FROM tbl_pay p, tbl_movie m WHERE p.m_no=m.m_no AND p.u_id = #{u_id}
 	</select>
 	<select id="selectPay" parameterType="int" resultType="pay">
 		SELECT u.u_email, m.m_title, u.u_name, u.u_phone, p.p_money 

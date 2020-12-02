@@ -32,7 +32,7 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
 	crossorigin="anonymous"></script>
 </head>
-<body class="sb-nav-fixed">
+<body class="sb-nav-fixed" style="font-family: Do Hyeon;">
 	<jsp:include page="/WEB-INF/views/header.jsp" />
 	<div id="layoutSidenav_content">
 		<main>

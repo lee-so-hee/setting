@@ -16,8 +16,14 @@
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
 	crossorigin="anonymous"></script>
+	<style>
+@import
+	url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&display=swap')
+	;
+</style>
+	
 </head>
-<body class="bg-primary">
+<body class="bg-primary" style="font-family: Do Hyeon;">
 	<div id="layoutAuthentication">
 		<div id="layoutAuthentication_content">
 			<main>
@@ -50,8 +56,7 @@
                                              -->
 										<div
 											class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
-											<a class="small" href="password.html">Forgot Password?</a> <input
-												type="submit" value="로그인" />
+											<input  class="btn btn-info" type="submit" value="로그인" />
 										</div>
 									</form>
 								</div>

@@ -12,15 +12,15 @@ public interface OrderDAO {
 
 	CartVO getCart();
 
-	ArrayList<CartVO> getCartList();
-
 	void removeCart(int cno);
 
 	void addPay(PayVO payVO);
 
-	ArrayList<PayVO> getPayList();
+	ArrayList<PayVO> getPayList(String user);
 
 	PayVO getPay(int cno);
+
+	ArrayList<CartVO> getCartList(String user);
 
 	
 

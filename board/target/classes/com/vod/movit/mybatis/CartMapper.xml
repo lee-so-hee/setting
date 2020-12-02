@@ -18,8 +18,8 @@
 	<select id="getCart" resultType="cart" >
 		SELECT c.c_no,c.m_no,c.u_id,c.c_money,c.c_orderDate,m.m_title as title FROM tbl_cart c, tbl_movie m WHERE c.m_no=m.m_no
 	</select>
-	<select id="getCartList" resultType="cart" >
-		SELECT c.c_no,c.m_no,c.u_id,c.c_money,c.c_orderDate,m.m_title as title FROM tbl_cart c, tbl_movie m WHERE c.m_no=m.m_no
+	<select id="getCartList" resultType="cart" parameterType="String">
+		SELECT c.c_no,c.m_no,c.u_id,c.c_money,c.c_orderDate,m.m_title as title FROM tbl_cart c, tbl_movie m WHERE c.m_no=m.m_no AND u_id = #{u_id}
 	</select>
 	
 	<insert id="insertCart" parameterType="cart">

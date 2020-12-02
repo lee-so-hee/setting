@@ -38,7 +38,7 @@
 </style>
 
 </head>
-<body class="sb-nav-fixed">
+<body class="sb-nav-fixed" style="font-family: Do Hyeon;">
 
 	<jsp:include page="/WEB-INF/views/header.jsp" />
 

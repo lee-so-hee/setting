@@ -12,7 +12,7 @@ public interface CartMapper {
 
 	CartVO getCart();
 
-	ArrayList<CartVO> getCartList();
+	ArrayList<CartVO> getCartList(String user);
 
 	void deleteCart(int cno);
 	
