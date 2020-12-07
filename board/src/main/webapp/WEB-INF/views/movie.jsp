@@ -13,14 +13,20 @@
 <meta name="author" content="" />
 <title>VOD Portal System</title>
 <!-- Favicon -->
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- Favicon-->
 <link rel="icon" type="image/x-icon"
 	href="${pageContext.request.contextPath }/resources/assets/img/favicon.ico" />
-<!-- Google fonts -->
+<!-- Google fonts-->
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
 	rel="stylesheet" type="text/css" />
 <link
 	href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
 	rel="stylesheet" type="text/css" />
+
 
 <link
 	href="${pageContext.request.contextPath }/resources/css/styles.css"
@@ -31,6 +37,15 @@
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
 	crossorigin="anonymous"></script>
+<!-- <script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+<script>
+	$(function() {
+		$("button.toggle_button").on("click", function() {
+			$("div.toggle_effect").toggle('slow');
+		});
+	});
+</script>
 <style>
 @import
 	url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&display=swap')
@@ -164,23 +179,26 @@
 
 											</table>
 
-											<p
+											<button class="toggle_button"
 												style="font-size: 35px; color: #8181F7; font-weight: 600; font-family: Do Hyeon">
-												줄거리</p>
-											<p style="font-size: 20px; font-family: Do Hyeon">${movie.m_content }</p>
+												줄거리</button>
+											<div class="toggle_effect">
+												<p style="font-size: 20px; font-family: Do Hyeon">${movie.m_content }</p>
+											</div>
 											<br>
 											<form action="addCart" method="POST">
-												<input type="hidden" name="m_no" value="${movie.m_no }" /> 
-												<input type="hidden" name="u_id" value="${sessionScope.userId }" /> 
-												<input type="submit" class="btn btn-info" value="장바구니 담기">
-											
-											<button class="btn btn-primary" data-dismiss="modal">
-												<i class="fas fa-times fa-fw"></i> 닫기
-											</button>
-											<button class="btn btn-primary" data-dismiss="modal"
-												onclick="location.href='table'">
-												<i class="fas fa-table mr-1"></i> 게시판
-											</button>
+												<input type="hidden" name="m_no" value="${movie.m_no }" />
+												<input type="hidden" name="u_id"
+													value="${sessionScope.userId }" /> <input type="submit"
+													class="btn btn-info" value="장바구니 담기">
+
+												<button class="btn btn-primary" data-dismiss="modal">
+													<i class="fas fa-times fa-fw"></i> 닫기
+												</button>
+												<button class="btn btn-primary" data-dismiss="modal"
+													onclick="location.href='table'">
+													<i class="fas fa-table mr-1"></i> 게시판
+												</button>
 											</form>
 										</div>
 									</div>
@@ -205,30 +223,18 @@
 		</footer>
 	</div>
 	</div>
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-		crossorigin="anonymous"></script>
+	<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		crossorigin="anonymous"></script> -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>
 	<script
 		src="${pageContext.request.contextPath }/resources/js/scripts.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
-		crossorigin="anonymous"></script>
-	<%--
-	<script
-		src="${pageContext.request.contextPath }/resources/assets/demo/chart-area-demo.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/assets/demo/chart-bar-demo.js"></script>
-	 --%>
-	<script
-		src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"
-		crossorigin="anonymous"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/assets/demo/datatables-demo.js"></script>
 
+	<!-- 	<script
+		src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"
+		crossorigin="anonymous"></script> -->
+	<%-- <script
+		src="${pageContext.request.contextPath }/resources/assets/demo/datatables-demo.js"></script> --%>
 </body>
 </html>

@@ -57,7 +57,7 @@
 		<c:when test="${null eq cartlist}">
 			<script>
 				alert("찜하신 상품이 존재하지 않습니다.");
-				location.href="index";
+				location.href = "index";
 			</script>
 		</c:when>
 		<c:otherwise>
@@ -68,7 +68,10 @@
 
 		<main style="width: 100%">
 			<div class="container-fluid" style="width: 100%">
-				<h1>찜 목록</h1>
+				<h1 class="mt-4">찜 목록</h1>
+				<ol class="breadcrumb mb-4">
+					<li class="breadcrumb-item active">찜 목록</li>
+				</ol>
 				<div class="card-body" style="width: 100%">
 					<div class="table-responsive" style="width: 100%">
 						<input type="checkbox" name="all" class="cart-check-all">
@@ -80,7 +83,9 @@
 									<td><input type="checkbox" name="${cart.c_no }"
 										class="cartToPay" /></td>
 									<td width="15%">제목</td>
-									<td colspan="2">${cart.title }</td>
+									<td>${cart.title }</td>
+									<td>구매자</td>
+									<td>${cart.u_id }</td>
 									<td>
 										<form action="addPay" method="POST">
 											<input type="hidden" name="c_no" value="${cart.c_no }" /> <input
@@ -94,15 +99,14 @@
 										class="btn btn-info" role="button">삭제</a></td>
 								</tr>
 								<tr>
-									<td>구매자</td>
-									<td>${cart.u_id }</td>
-									<td width="15%">작성일</td>
-									<td>${cart.c_orderDate }</td>
+									<td></td>
+									<td width="15%">찜한 날짜</td>
+									<td colspan="2">${cart.c_orderDate }</td>
 									<td width="15%">가격</td>
-									<td>${cart.c_money }</td>
+									<td colspan="2">${cart.c_money }</td>
 								</tr>
 								<tr>
-									<td colspan="6"></td>
+									<td colspan="7"></td>
 								</tr>
 							</c:forEach>
 

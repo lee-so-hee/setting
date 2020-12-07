@@ -12,6 +12,10 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>VOD Portal System</title>
+<!-- Favicon -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon"
 	href="${pageContext.request.contextPath }/resources/assets/img/favicon.ico" />
@@ -22,6 +26,7 @@
 	href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
 	rel="stylesheet" type="text/css" />
 
+
 <link
 	href="${pageContext.request.contextPath }/resources/css/styles.css"
 	rel="stylesheet" />
@@ -31,6 +36,16 @@
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
 	crossorigin="anonymous"></script>
+<!-- <script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+<script>
+  $( function() {
+    $( "#datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
+  } );
+  </script>
 </head>
 <body class="sb-nav-fixed"  style="font-family: Do Hyeon;">
 
@@ -54,15 +69,15 @@
 									align="center">
 									<tr>
 										<td width="100">닉네임</td>
-										<td colspan="2" width="30"><input type="text"
-											name="b_writer" width="70" disabled="disabled"
-											value="${sessionScope.userName }"> 
+										<td colspan="3"><input type="text"
+											name="b_writer" disabled="disabled"
+											value="${sessionScope.userName }" style="width:20%;"> 
 											<input type="hidden" name="b_writer"
 											value="${sessionScope.userName }"></td>
 									</tr>
 									<tr>
 										<td width="100">영화</td>
-										<td colspan="2"><select name="m_no" id="head" align="right">
+										<td colspan="3"><select name="m_no" id="head" align="right">
 											<c:forEach items="${movieNameList }" var="movieName">
 												<option value="${movieName.m_no }">${movieName.m_title }</option>
 											</c:forEach>
@@ -70,12 +85,14 @@
 									</tr>
 									<tr>
 										<td width="100">제목</td>
-										<td colspan="2"><input type="text"
-											name="b_title" width="70"></td>
+										<td><input type="text"
+											name="b_title" style="width:100%;"></td>
+										<td width="100">관람일</td>
+										<td><input type="text" id="datepicker"></td>
 									</tr>
 									<tr>
 										<td width="100">내용</td>
-										<td colspan="2"><textarea rows="20" cols="50"
+										<td colspan="3"><textarea rows="20" cols="100%"
 												name="b_content"></textarea></td>
 									</tr>
 								</table>
@@ -94,20 +111,19 @@
 			</div>
 		</footer>
 	</div>
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-		crossorigin="anonymous"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		crossorigin="anonymous"></script> -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>
 	<script
 		src="${pageContext.request.contextPath }/resources/js/scripts.js"></script>
-	<script
-		src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"
-		crossorigin="anonymous"></script>
-	<script
+
+<!-- 	<script
 		src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"
-		crossorigin="anonymous"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/assets/demo/datatables-demo.js"></script>
+		crossorigin="anonymous"></script> -->
+	<%-- <script
+		src="${pageContext.request.contextPath }/resources/assets/demo/datatables-demo.js"></script> --%>
+
 </body>
 </html>

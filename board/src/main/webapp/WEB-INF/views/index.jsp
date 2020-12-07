@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<script src="https://code.jquery.com/jquery-latest.js"></script>
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport"
@@ -13,14 +13,19 @@
 <meta name="author" content="" />
 <title>VOD Portal System</title>
 <!-- Favicon -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- Favicon-->
 <link rel="icon" type="image/x-icon"
 	href="${pageContext.request.contextPath }/resources/assets/img/favicon.ico" />
-<!-- Google fonts -->
+<!-- Google fonts-->
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
 	rel="stylesheet" type="text/css" />
 <link
 	href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
 	rel="stylesheet" type="text/css" />
+
 
 <link
 	href="${pageContext.request.contextPath }/resources/css/styles.css"
@@ -31,6 +36,8 @@
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
 	crossorigin="anonymous"></script>
+<!-- <script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
 
 <script type='text/javascript'>
 	function openPage(evt, pageName, tabName) {
@@ -51,6 +58,7 @@
 		document.getElementById(pageName).style.display = "block";
 		evt.currentTarget.className += " active";
 	}
+	
 </script>
 <style>
 @import
@@ -65,6 +73,8 @@
 
 	<div id="layoutSidenav_content">
 		<main>
+
+
 			<section class="page-section portfolio" id="portfolio">
 				<div class="container">
 					<br /> <br />
@@ -74,12 +84,12 @@
 
 
 					<br /> <br />
-					<!-- Icon Divider-->	
+					<!-- Icon Divider-->
 					<div class="divider-custom">
 						<div class="divider-custom-line"></div>
 					</div>
 					<!-- Portfolio Grid Items-->
-					<h1 id="mtitle" style="text-align:center; font-size:70px;">MovIT</h1>
+					<h1 id="mtitle" style="text-align: center; font-size: 70px;">MovIT</h1>
 					<br />
 					<div class="row justify-content-center">
 						<div class="tab">
@@ -201,7 +211,7 @@
 										<div class="col-lg-10">
 											<!-- Portfolio Modal - Image-->
 											<table
-												style="margin-bottom: 10px; margin-top: 20px; font-family: Do Hyeon; font-size:25px;">
+												style="margin-bottom: 10px; margin-top: 20px; font-family: Do Hyeon; font-size: 25px;">
 												<tr>
 													<td rowspan="13" style="margin-bottom: 0px"><img
 														class="img-fluid rounded mb-5"
@@ -266,12 +276,13 @@
 											<p
 												style="font-size: 35px; color: #8181F7; font-weight: 600; font-family: Do Hyeon">
 												줄거리</p>
-											<p style="font-family: Do Hyeon; font-size:20px;">${movie.m_content }</p>
+											<p style="font-family: Do Hyeon; font-size: 20px;">${movie.m_content }</p>
 											<br>
 											<button class="btn btn-primary" data-dismiss="modal">
 												<i class="fas fa-times fa-fw"></i> Close Window
 											</button>
-											<button class="btn btn-primary" data-dismiss="modal" onclick="location.href='table'">
+											<button class="btn btn-primary" data-dismiss="modal"
+												onclick="location.href='table'">
 												<i class="fas fa-table mr-1"></i> 게시판
 											</button>
 
@@ -299,7 +310,7 @@
 										<div class="col-lg-10">
 											<!-- Portfolio Modal - Image-->
 											<table
-												style="margin-bottom: 10px; margin-top: 20px; font-family: Do Hyeon; font-size:25px;">
+												style="margin-bottom: 10px; margin-top: 20px; font-family: Do Hyeon; font-size: 25px;">
 												<tr>
 													<td rowspan="13" style="margin-bottom: 0px"><img
 														class="img-fluid rounded mb-5"
@@ -362,14 +373,15 @@
 											</table>
 
 											<p
-												style="font-size: 35px; color: #8181F7; font-weight: 600; font-family: Do Hyeon; font-size:20px;">
+												style="font-size: 35px; color: #8181F7; font-weight: 600; font-family: Do Hyeon; font-size: 20px;">
 												줄거리</p>
-											<p style="font-family: Do Hyeon; font-size:20px;">${movie.m_content }</p>
+											<p style="font-family: Do Hyeon; font-size: 20px;">${movie.m_content }</p>
 											<br>
 											<button class="btn btn-primary" data-dismiss="modal">
 												<i class="fas fa-times fa-fw"></i> Close Window
 											</button>
-											<button class="btn btn-primary" data-dismiss="modal" onclick="location.href='table'">
+											<button class="btn btn-primary" data-dismiss="modal"
+												onclick="location.href='table'">
 												<i class="fas fa-table mr-1"></i> 게시판
 											</button>
 
@@ -397,7 +409,7 @@
 										<div class="col-lg-10">
 											<!-- Portfolio Modal - Image-->
 											<table
-												style="margin-bottom: 10px; margin-top: 20px; font-family: Do Hyeon; font-size:25px;">
+												style="margin-bottom: 10px; margin-top: 20px; font-family: Do Hyeon; font-size: 25px;">
 												<tr>
 													<td rowspan="13" style="margin-bottom: 0px"><img
 														class="img-fluid rounded mb-5"
@@ -462,12 +474,13 @@
 											<p
 												style="font-size: 35px; color: #8181F7; font-weight: 600; font-family: Do Hyeon">
 												줄거리</p>
-											<p style="font-family: Do Hyeon; font-size:20px;">${movie.m_content }</p>
+											<p style="font-family: Do Hyeon; font-size: 20px;">${movie.m_content }</p>
 											<br>
 											<button class="btn btn-primary" data-dismiss="modal">
 												<i class="fas fa-times fa-fw"></i> 닫기
 											</button>
-											<button class="btn btn-primary" data-dismiss="modal" onclick="location.href='table'">
+											<button class="btn btn-primary" data-dismiss="modal"
+												onclick="location.href='table'">
 												<i class="fas fa-table mr-1"></i> 게시판
 											</button>
 
@@ -490,30 +503,19 @@
 		</footer>
 	</div>
 	</div>
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-		crossorigin="anonymous"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		crossorigin="anonymous"></script> -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>
 	<script
 		src="${pageContext.request.contextPath }/resources/js/scripts.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
-		crossorigin="anonymous"></script>
-	<%--
-	<script
-		src="${pageContext.request.contextPath }/resources/assets/demo/chart-area-demo.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/assets/demo/chart-bar-demo.js"></script>
-	 --%>
-	<script
-		src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"
-		crossorigin="anonymous"></script>
-	<script
+
+<!-- 	<script
 		src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"
-		crossorigin="anonymous"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/assets/demo/datatables-demo.js"></script>
+		crossorigin="anonymous"></script> -->
+	<%-- <script
+		src="${pageContext.request.contextPath }/resources/assets/demo/datatables-demo.js"></script> --%>
 
 </body>
 </html>

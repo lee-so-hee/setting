@@ -8,9 +8,8 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>VOD Portal System</title>
 <!-- Favicon-->
-<link rel="icon" type="image/x-icon"
+<%-- <link rel="icon" type="image/x-icon"
 	href="${pageContext.request.contextPath }/resources/assets/img/favicon.ico" />
 <!-- Google fonts-->
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
@@ -21,8 +20,78 @@
 
 <link
 	href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"
-	rel="stylesheet" crossorigin="anonymous" />
+	rel="stylesheet" crossorigin="anonymous" /> --%>
 
+<script>
+$(document).ready(function() {
+
+	// 버튼의 이벤트 핸들러를 붙입니다.
+	$(".login-dialog").button().on("click", function () {
+		// 다이얼로그 내용을 가져올 URL입니다.
+		var url = "loginForm";
+		// 다이얼로그를 생성합니다.
+		$('<div id="DialogDiv">').dialog({
+			// 커스텀 스타일을 줍니다.
+			dialogClass: 'custom-dialog-style',
+			// 모달 다이얼로그로 생성합니다.
+			modal: true,
+			// 다이얼로그 열기 콜백
+			open: function () {
+				// 모달 오버레이 설정
+				$(".ui-widget-overlay").css({
+					opacity: 0.5,
+					filter: "Alpha(Opacity=50)",
+					backgroundColor: "black"
+				});
+				// 내용을 불러 옵니다.
+				$(this).load(url);
+			},
+			// 닫기 콜백
+			close: function (e) {
+				$(this).empty();
+				$(this).dialog('destroy');
+			},
+
+			height: 600,
+			width: 1000,
+			title: '로그인 화면'
+		});
+	});
+	
+	// 버튼의 이벤트 핸들러를 붙입니다.
+	$(".register-dialog").button().on("click", function () {
+		// 다이얼로그 내용을 가져올 URL입니다.
+		var url = "registerForm";
+		// 다이얼로그를 생성합니다.
+		$('<div id="DialogDiv">').dialog({
+			// 커스텀 스타일을 줍니다.
+			dialogClass: 'custom-dialog-style',
+			// 모달 다이얼로그로 생성합니다.
+			modal: true,
+			// 다이얼로그 열기 콜백
+			open: function () {
+				// 모달 오버레이 설정
+				$(".ui-widget-overlay").css({
+					opacity: 0.5,
+					filter: "Alpha(Opacity=50)",
+					backgroundColor: "black"
+				});
+				// 내용을 불러 옵니다.
+				$(this).load(url);
+			},
+			// 닫기 콜백
+			close: function (e) {
+				$(this).empty();
+				$(this).dialog('destroy');
+			},
+
+			height: 750,
+			width: 1000,
+			title: '회원가입 화면'
+		});
+	});
+});
+</script>
 <style>
 @import
 	url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&display=swap')
@@ -56,8 +125,8 @@
 						<a class="dropdown-item" href="logout">로그아웃</a>
 					</c:when>
 					<c:otherwise>
-						<a class="dropdown-item" href="loginForm">로그인</a>
-						<a class="dropdown-item" href="registerForm">회원가입</a>
+						<button class="dropdown-item login-dialog">로그인</button>
+						<button class="dropdown-item register-dialog">회원가입</button>
 					</c:otherwise>
 				</c:choose>
 			</div></li>
@@ -89,8 +158,8 @@
 					<div class="collapse" id="collapseLayouts"
 						aria-labelledby="headingOne" data-parent="#sidenavAccordion">
 						<nav class="sb-sidenav-menu-nested nav">
-							<a class="nav-link" href="login">로그인</a> 
-							<a class="nav-link" href="registerForm">회원가입</a>
+							<button class="dropdown-item login-dialog nav-link" style="color:white;">로그인</button>
+						<button class="dropdown-item register-dialog nav-link" style="color:white;">회원가입</button>
 						</nav>
 					</div>
 					<a class="nav-link collapsed" href="#" data-toggle="collapse"
